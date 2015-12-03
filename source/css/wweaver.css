@@ -1,0 +1,97 @@
+html,
+body {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+main {
+    position: absolute;
+    float: left;
+    top: 49px;
+    bottom: 0px;
+    left: 30px;
+    right: 0px;
+    background-color: #FFF;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#mainContainer{
+    position: relative;
+    padding-top: 0px;
+    height: 100%;
+}
+
+.edit{
+    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+    bottom: 0;
+}
+
+.edit div.row {
+    border: 1px dotted #EDEDED;
+    margin-bottom: -1px;
+    padding: -1px;
+    min-height: 25px;
+}
+
+.edit div.row:hover {
+    border: 1px dotted #ccc;
+}
+
+.edit div.row > div {
+    border: 1px dotted #EDEDED;
+    min-height: 24px;
+}
+
+.edit div.row > div:hover {
+    border: 1px dotted #ccc;
+}
+
+.edit div.row > div:active {
+    border: 1px dotted orange;
+}
+
+.edit div.row > .resizable {
+    position: relative;
+    border: 1px dotted orange;
+}
+
+.edit div.row > .resizable:hover {
+    border: 1px dotted orange;
+}
+
+.edit .resizer {
+    width: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    cursor: col-resize;
+}
+
+.resizer:hover {
+    background-color: #FFDB99;
+}
+
+/**** DARK LAYOUT *************************/
+
+
+/*
+.top-bar {
+    background-color: #272822;
+}
+.brand {
+    border-right: 1px solid #666;
+}
+.sub-menu {
+    border-right: 1px solid #666;
+}
+#ruler {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+*/

@@ -1,0 +1,23 @@
+{
+    "name" : "WoolaWeaver",
+    "version" : "0.1.0",
+    "description" : "A Bootstrap forms builder, with code like that done by hand",
+    "author": "sandroe2000@gmail.com",
+    "contributors" : {
+        "name" : "Sandro C. Espindula",
+        "email": "sandroe2000@gmail.com"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "https://bitbucket.org/sandroe2000/woolaweaver"
+    },
+    "license" : "MIT",
+    "devDependencies": {
+        "gulp": "^3.9.0",
+        "gulp-connect": "^2.2.0",
+        "gulp-uglify": "^1.4.2",
+        "gulp-concat": "^2.6.0",
+        "gulp-cssmin": "^0.1.7",
+        "gulp-strip-css-comments": "^1.2.0"
+    }
+}

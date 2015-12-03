@@ -1,0 +1,26 @@
+aside{
+    position: absolute;
+    float: left;
+    top: 0px;
+    bottom: 0px;
+    left: -160px;
+    width: 190px;
+    background-color: #EDEDED;
+    padding: 7px 5px;
+    border-right: 1px solid #D9D9D9;
+}
+
+.side-menu{
+    width: 180px;
+    min-height: 25px;
+    padding: 5px;
+    cursor: pointer;
+}
+.side-menu:hover{
+    background-color: #F4F4F4;
+}
+.side-menu i{
+    margin-top: 3px;
+    float:right;
+    color: #666;
+}
