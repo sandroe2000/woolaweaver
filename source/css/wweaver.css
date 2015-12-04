@@ -24,6 +24,10 @@ main {
     height: 100%;
 }
 
+#mainContainer.hide{
+    display: none;
+}
+
 .edit{
     position: absolute;
     margin-right: auto;
