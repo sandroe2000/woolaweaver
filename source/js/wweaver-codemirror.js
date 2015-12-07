@@ -1,7 +1,6 @@
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 	lineNumbers: true,
-	extraKeys: {"Ctrl-Space": "autocomplete"},
-	mode: {name: "javascript", globalVars: true}
+	mode: {name: "htmlmixed'", globalVars: true}
 });
 
 editor.setSize('100%', document.querySelector("main").offsetHeight);
@@ -13,11 +12,12 @@ function toggleCodeMirror(){
 
 	main.classList.toggle("hide");
 	code.classList.toggle("show");
+
+	document.querySelector("[style]").removeAttribute("style")
 	
 	if(!main.classList.contains("hide")){
 
-		console.log(editor.getValue());
-		main.innerHTML = editor.getValue();
+		//main.innerHTML = editor.getValue();
 	}else{
 
 		editor.setValue(main.innerHTML);

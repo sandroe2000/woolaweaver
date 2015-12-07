@@ -33,12 +33,15 @@ nav{
     padding: 5px 7px;
     border: 1px solid transparent;
     border-radius: 4px;
+    text-decoration: none;
 }
 
 .action-btn:hover {
     border: 1px solid #BFBFBF;
     color: #666;
+    text-decoration: none;
     z-index: 1200;
+    cursor: default;
 }
 
 .action-btn:active {
@@ -56,4 +59,9 @@ nav{
 .separator{
     margin: 0 5px 0 5px;
     color: #BFBFBF;
+}
+
+.drag-over{
+    background-color: #FEFCC3;
+    border: 1px dotted #000;
 }

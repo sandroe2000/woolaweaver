@@ -1,6 +1,11 @@
 'use strict'
 
 var drake;
+var id = 1;
+
+function getId(){
+    return id++;
+}
 
 function menuTooltip() {
 
@@ -15,14 +20,14 @@ function menuTooltip() {
 
 function getRow() {
     var row = document.createElement("div");
-    row.setAttribute("id", "row0008");
+    row.setAttribute("id", "row"+getId());
     row.classList.add("row");
     return row;
 }
 
 function getColumn() {
     var column = document.createElement("div");
-    column.setAttribute("id", "col0007");
+    column.setAttribute("id", "col"+getId());
     column.classList.add("col-md-2");
     column.classList.add("col");
     return column;
@@ -37,6 +42,7 @@ function getLabel() {
 
 function getInput(type) {
     var input = document.createElement("Input");
+    input.setAttribute("id", "inp"+getId());
     input.setAttribute("type", type);
     input.classList.add("form-control");
     return input;
@@ -44,7 +50,7 @@ function getInput(type) {
 
 function getTextarea() {
     var textarea = document.createElement("textarea");
-    textarea.setAttribute("id", "txt0009");
+    textarea.setAttribute("id", "txt"+getId());
     textarea.classList.add("form-control");
     return textarea;
 }
@@ -101,12 +107,15 @@ function dragFromMenu() {
             return el.classList.contains('action-btn');
         },
         accepts: function(el, target) {
-            if (target.classList.contains('edit')) return true;
-            if (target.classList.contains('row')) return true;
-            if (target.classList.contains('col')) return true;
-            return false;
+            return dragIsAcceptable(el, target);
         },
         removeOnSpill: true
+    }).on('over', function (el, container, source) {
+        if(container != source){
+            container.classList.toggle("drag-over");
+        } 
+    }).on('out', function (el, container, source) {
+        container.classList.remove("drag-over");       
     }).on('drop', function(el, container) {
         container.classList.remove('draging');
         replaceIcoMenu(el);
@@ -118,18 +127,13 @@ function dragFromMenu() {
 
 }
 
-function pushContainer(el) {
-    drake.containers.push(el);
+function dragIsAcceptable(el, target){
+    if (target.classList.contains('edit')) return true;
+    if (target.classList.contains('row')) return true;
+    if (target.classList.contains('col')) return true;
+    return false;
 }
 
-function getPosition(el) {
-    var xPosition = 0;
-    var yPosition = 0;
-
-    while (el) {
-        xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-        yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
-        el = el.offsetParent;
-    }
-    return xPosition;
+function pushContainer(el) {
+    drake.containers.push(el);
 }

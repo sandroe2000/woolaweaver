@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +7,9 @@
     <title>Woolaweaver</title>
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="lib/dragula/dragula.min.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="lib/codemirror/lib/codemirror.css" />
-    <link rel="stylesheet" href="lib/codemirror/addon/hint/show-hint.css" />
+    <link href="lib/dragula/dragula.min.css" rel="stylesheet" />    
+    <link href="lib/codemirror/lib/codemirror.css" rel="stylesheet" />
+    <link href="lib/codemirror/theme/eclipse.css" rel="stylesheet" />
 
     <link href="source/css/wweaver.css" rel="stylesheet" />
     <link href="source/css/wweaver-drag-menu.css" rel="stylesheet" />
@@ -19,8 +17,38 @@
     <link href="source/css/wweaver-side-menu.css" rel="stylesheet" />
     <link href="source/css/wweaver-codemirror.css" rel="stylesheet" />
 </head>
-
 <body>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Add Snippet</h4>
+          </div>
+          <div class="modal-body">
+            <form style="margin:0 10px 0 10px">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Title:</label>
+                        <input class="form-control" type="text" id="snpTitle" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Code:</label>
+                        <textarea class="form-control"rows="5" id="snpCode"></textarea>
+                    </div>
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <nav>
         <div class="top-bar">
             <div class="brand">WoolaWeaver</div>
@@ -54,9 +82,7 @@
         </div>
     </nav>
     <main>
-        <div id="mainContainer" class="container edit">
-            <div class="row"></div>
-        </div>
+        <div id="mainContainer" class="container edit"></div>
         <div id="codeContainer" style="display:none">
             <form>
                 <textarea id="code" name="code"></textarea>
@@ -64,15 +90,15 @@
         </div>
     </main>
     <aside>
-        <div class="side-menu">Sniplets <i class="fa fa-columns"></i></div>
+        <div class="side-menu">Snippets <a class="action-btn" data-toggle="modal" data-target="#myModal">+</a> <i class="fa fa-indent"></i></div>
     </aside>
     <script src="lib/bootstrap/js/bootstrap-native.min.js"></script>
     <script src="lib/dragula/dragula.min.js"></script>
-
     <script src="lib/codemirror/lib/codemirror.js"></script>
-    <script src="lib/codemirror/addon/hint/show-hint.js"></script>
-    <script src="lib/codemirror/addon/hint/javascript-hint.js"></script>
+    <script src="lib/codemirror/mode/xml/xml.js"></script>
+    <script src="lib/codemirror/mode/javascript/javascript.js"></script>
     <script src="lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="lib/codemirror/addon/edit/matchbrackets.js"></script>
 
     <script src="source/js/wweaver-selector-helper.js"></script>
     <script src="source/js/wweaver-drag-menu.js"></script>
@@ -88,5 +114,4 @@
     })();
     </script>
 </body>
-
 </html>

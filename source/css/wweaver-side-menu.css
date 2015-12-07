@@ -13,14 +13,17 @@ aside{
 .side-menu{
     width: 180px;
     min-height: 25px;
-    padding: 5px;
-    cursor: pointer;
+    padding: 2px;
+    cursor: default;
 }
+
 .side-menu:hover{
-    background-color: #F4F4F4;
+    /*background-color: #F4F4F4;*/
 }
-.side-menu i{
+
+.side-menu > i{
     margin-top: 3px;
     float:right;
     color: #666;
+    cursor: pointer;
 }
