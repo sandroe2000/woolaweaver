@@ -15,6 +15,7 @@ aside{
     min-height: 25px;
     padding: 2px;
     cursor: default;
+    padding-left: 10px;
 }
 
 .side-menu:hover{
@@ -26,4 +27,26 @@ aside{
     float:right;
     color: #666;
     cursor: pointer;
+}
+
+.snippets{
+    margin-left: -40px;
+}
+
+.snippet-item{
+    list-style-type: none;
+    color: #666;
+    width: 155px;
+    padding: 2px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: default;
+}
+.snippet-item > i{
+    margin-right: 7px;
+}
+
+.snippet-item:hover{
+    border: 1px solid #BFBFBF;
 }

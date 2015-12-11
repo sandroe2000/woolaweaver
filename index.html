@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Woolaweaver</title>
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="lib/fontawesome-iconpicker/css/fontawesome-iconpicker.min.css" rel="stylesheet" />
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="lib/dragula/dragula.min.css" rel="stylesheet" />    
     <link href="lib/codemirror/lib/codemirror.css" rel="stylesheet" />
@@ -29,9 +30,17 @@
           <div class="modal-body">
             <form style="margin:0 10px 0 10px">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Title:</label>
-                        <input class="form-control" type="text" id="snpTitle" />
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Title:</label>
+                            <input class="form-control" type="text" id="snpTitle" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Icon:</label>
+                            <input class="form-control icp icp-auto" type="text" id="snpIcon" />
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -44,7 +53,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button onclick="setSnippet()" type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -54,26 +63,26 @@
             <div class="brand">WoolaWeaver</div>
             <div class="sub-menu">
                 <span class="separator">|</span>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Column"><i class="fa fa-columns"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Row"><i class="fa fa-th-list"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Nav Tab"><i class="fa fa-folder-o"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Accordion"><i class="fa fa-list-alt"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Table"><i class="fa fa-table"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Column"><i class="fa fa-columns"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Row"><i class="fa fa-th-list"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Nav Tab"><i class="fa fa-folder-o"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Accordion"><i class="fa fa-list-alt"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Table"><i class="fa fa-table"></i></a>
                 <span class="separator">|</span>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Label"><i class="fa fa-font"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Input Text"><i class="fa fa-pencil"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Input Password"><i class="fa fa-ellipsis-h"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Input Date"><i class="fa fa-calendar"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Input Number"><i class="fa fa-sort"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Input Checkbox"><i class="fa fa-check-square-o"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Input Radio"><i class="fa fa-dot-circle-o"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Textarea"><i class="fa fa-pencil-square-o"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Select"><i class="fa fa-bars"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Button"><i class="fa fa-square"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Label"><i class="fa fa-font"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Input Text"><i class="fa fa-pencil"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Input Password"><i class="fa fa-ellipsis-h"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Input Date"><i class="fa fa-calendar"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Input Number"><i class="fa fa-sort"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Input Checkbox"><i class="fa fa-check-square-o"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Input Radio"><i class="fa fa-dot-circle-o"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Textarea"><i class="fa fa-pencil-square-o"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Select"><i class="fa fa-bars"></i></a>
+                <a class="action-btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Button"><i class="fa fa-square"></i></a>
                 <span class="separator">|</span>
             </div>
             <div class="sub-menu">
-                <a onclick="toggleCodeMirror()" class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Column"><i class="fa fa-code"></i></a>
+                <a onclick="toggleEditor()" class="action-btn" data-toggle="tooltip" data-placement="bottom" title="Column"><i class="fa fa-code"></i></a>
                 <span class="separator">|</span>
             </div>
         </div>
@@ -90,9 +99,15 @@
         </div>
     </main>
     <aside>
-        <div class="side-menu">Snippets <a class="action-btn" data-toggle="modal" data-target="#myModal">+</a> <i class="fa fa-indent"></i></div>
+        <div class="side-menu">
+            Snippets <a class="action-btn" data-toggle="modal" data-target="#myModal">+</a> <i class="fa fa-indent"></i>
+        </div> 
+        <ul class="snippets">
+        </ul>       
     </aside>
     <script src="lib/bootstrap/js/bootstrap-native.min.js"></script>
+    <script src="lib/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="lib/fontawesome-iconpicker/js/fontawesome-iconpicker.min.js"></script>
     <script src="lib/dragula/dragula.min.js"></script>
     <script src="lib/codemirror/lib/codemirror.js"></script>
     <script src="lib/codemirror/mode/xml/xml.js"></script>
@@ -111,6 +126,7 @@
         menuTooltip();
         setRuler();
         dragFromMenu();
+        $('.icp-auto').iconpicker({hideOnSelect: true});
     })();
     </script>
 </body>

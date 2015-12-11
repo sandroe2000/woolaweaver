@@ -16,7 +16,6 @@ function removeListenerSelecorAll(elements, action, func) {
     );
 }
 
-
 function getChildenByClass(baseElement, wantedElementClass) {
     var elementToReturn;
     for (var i = 0; i < baseElement.childNodes.length; i++) {
@@ -28,3 +27,17 @@ function getChildenByClass(baseElement, wantedElementClass) {
     return null;
 }
 
+function removeAttributeSelecorAll(elements) {
+    [].forEach.call(
+        elements,
+        function(el) {
+            el.removeAttribute("style");
+        }
+    );
+}
+
+String.prototype.toDomElement = function () {
+    var wrapper = document.createElement('div');
+    wrapper.innerHTML = this;
+    return wrapper.childNodes[0];
+};

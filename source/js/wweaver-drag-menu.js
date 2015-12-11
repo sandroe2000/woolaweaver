@@ -35,6 +35,7 @@ function getColumn() {
 
 function getLabel() {
     var label = document.createElement("label");
+        label.setAttribute("id", "lbl"+getId());
     var text = document.createTextNode("Label:");
     label.appendChild(text);
     return label;
@@ -55,9 +56,16 @@ function getTextarea() {
     return textarea;
 }
 
+function getSideMenuSnippet(code){
+    //TODO - GET SNIPPET BY ID
+    var snippet = window.atob(code);
+    return snippet.toDomElement();
+}
+
 function replaceIcoMenu(el) {
 
     var title = el.getAttribute("data-original-title");
+    var code = el.getAttribute("data-code");
     var replacedEl;
     var isColumn = false;
     var isContainer = false;
@@ -84,12 +92,15 @@ function replaceIcoMenu(el) {
         case 'Textarea':
             replacedEl = getTextarea();
             break;
+        case 'Snippet':
+            replacedEl = getSideMenuSnippet(code);
+            break;
         default:
             return false;
     }
 
-    el.parentNode.appendChild(replacedEl);
-    el.parentNode.removeChild(el);
+    el.parentNode.appendChild(replacedEl); 
+    replacedEl.parentNode.removeChild(el);   
 
     if (isColumn) {
         replacedEl.addEventListener('click', initResize, false);
@@ -98,13 +109,21 @@ function replaceIcoMenu(el) {
     if (isContainer) {
         pushContainer(replacedEl);
     }
+   
+    if(!replacedEl.classList.contains('row')){
+        if(!replacedEl.previousSibling || (replacedEl.previousSibling && replacedEl.previousSibling.data!='\n')){
+            replacedEl.parentNode.insertBefore(document.createTextNode('\n'), replacedEl);
+        }
+    }
+    
+    replacedEl.parentNode.appendChild(document.createTextNode('\n'));     
 }
 
 function dragFromMenu() {
 
     drake = dragula({
         copy: function(el, source) {
-            return el.classList.contains('action-btn');
+            return dragIsCopy(el);
         },
         accepts: function(el, target) {
             return dragIsAcceptable(el, target);
@@ -124,13 +143,21 @@ function dragFromMenu() {
     pushContainer(document.querySelector('.sub-menu'));
     pushContainer(document.querySelector('.edit'));
     pushContainer(document.querySelector('.row'));
+    pushContainer(document.querySelector('.snippets'));
 
+}
+
+function dragIsCopy(el){
+    if (el.classList.contains('action-btn')) return true;
+    if (el.classList.contains('snippet-item')) return true;
+    return false;
 }
 
 function dragIsAcceptable(el, target){
     if (target.classList.contains('edit')) return true;
     if (target.classList.contains('row')) return true;
     if (target.classList.contains('col')) return true;
+    if (target.classList.contains('snippet-item')) return true;
     return false;
 }
 
