@@ -7,6 +7,8 @@ var sideMenu = document.querySelector('.side-menu i');
 sideMenu.addEventListener('click', toggleSideMenu, false);
 
 function toggleSideMenu() {
+
+    //TODO - UTILIZAR CSS PSEUDO-CLASS E "classList.toggle('PSEUDO-CLASS')"
     if (aside.offsetLeft == -160) {
         aside.style.left = "0px";
 
@@ -34,9 +36,9 @@ function setSnippet(){
 	var modal = new Modal( myModal );
 
 	var newSnippet = document.createElement("li");
-		newSnippet.classList.add("snippet-item");	
+		newSnippet.classList.add("snippet-item");
 		newSnippet.setAttribute("data-original-title", "Snippet");
-		newSnippet.setAttribute("data-code", window.btoa(code));
+		newSnippet.setAttribute("data-code", window.btoa(code)); //ENCODE BASE 64
 
 		newSnippet.setAttribute("id", "snp"+getId());
 
@@ -50,5 +52,5 @@ function setSnippet(){
 	list.appendChild(newSnippet);
 
 	modal.close();
-	
+
 }

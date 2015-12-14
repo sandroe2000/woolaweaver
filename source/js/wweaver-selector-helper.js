@@ -1,3 +1,5 @@
+'use strict';
+
 function addListenerSelecorAll(elements, action, func) {
     [].forEach.call(
         elements,
@@ -20,7 +22,7 @@ function getChildenByClass(baseElement, wantedElementClass) {
     var elementToReturn;
     for (var i = 0; i < baseElement.childNodes.length; i++) {
         elementToReturn = baseElement.childNodes[i];
-        if (elementToReturn.getAttribute("class") == wantedElementClass) {
+        if (elementToReturn.classList && elementToReturn.classList.contains(wantedElementClass)) {
             return elementToReturn;
         }
     }
@@ -36,7 +38,7 @@ function removeAttributeSelecorAll(elements) {
     );
 }
 
-String.prototype.toDomElement = function () {
+String.prototype.toDomElement = function() {
     var wrapper = document.createElement('div');
     wrapper.innerHTML = this;
     return wrapper.childNodes[0];

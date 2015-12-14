@@ -9,7 +9,7 @@ body {
 main {
     position: absolute;
     float: left;
-    top: 49px;
+    top: 85px;
     bottom: 0px;
     left: 30px;
     right: 0px;
@@ -36,23 +36,23 @@ main {
 }
 
 .edit div.row {
-    border: 1px dotted #EDEDED;
+    border: 1px dotted #ccc;
     margin-bottom: -1px;
     padding: -1px;
     min-height: 25px;
 }
 
 .edit div.row:hover {
-    border: 1px dotted #ccc;
+    border: 1px dotted #000;
 }
 
 .edit div.row > div {
-    border: 1px dotted #EDEDED;
+    border: 1px dotted #ccc;
     min-height: 24px;
 }
 
 .edit div.row > div:hover {
-    border: 1px dotted #ccc;
+    border: 1px dotted #000;
 }
 
 .edit div.row > div:active {
@@ -83,10 +83,9 @@ main {
 
 /**** DARK LAYOUT *************************/
 
-
 /*
 .top-bar {
-    background-color: #272822;
+    background-color: #DFDFDF;
 }
 .brand {
     border-right: 1px solid #666;

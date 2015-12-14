@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var drake;
 var id = 1;
@@ -13,7 +13,7 @@ function menuTooltip() {
 
     for (var i = 0; i < elementsTooltip.length; i++) {
         new Tooltip(elementsTooltip[i], {
-            placement: 'bottom'
+            placement: 'top'
         })
     }
 }
@@ -57,8 +57,8 @@ function getTextarea() {
 }
 
 function getSideMenuSnippet(code){
-    //TODO - GET SNIPPET BY ID
-    var snippet = window.atob(code);
+    //TODO - RECUPERAR SNIPPET DO DB
+    var snippet = window.atob(code);///DECODE BASE 64
     return snippet.toDomElement();
 }
 
@@ -99,24 +99,31 @@ function replaceIcoMenu(el) {
             return false;
     }
 
-    el.parentNode.appendChild(replacedEl); 
-    replacedEl.parentNode.removeChild(el);   
+    //PONTO DE ATENÇÃO - AS VEZES NÃO FAZ APPENDCHILD
+    if(!el.parentNode) {
+        console.log("Drop error: "+el.innerHTML+", el.parentNode: null");
+        return;
+    }
+    el.parentNode.appendChild(replacedEl);
+    replacedEl.parentNode.removeChild(el);
 
+    //TODO - RESPONSABILIDADE DE "isColumn" PARA UMA FUNÇÃO RECURSIVA
     if (isColumn) {
         replacedEl.addEventListener('click', initResize, false);
     }
 
+    //TODO - RESPONSABILIDADE DE "isContainer" PARA UMA FUNÇÃO RECURSIVA
     if (isContainer) {
         pushContainer(replacedEl);
     }
-   
-    if(!replacedEl.classList.contains('row')){
+
+    if(replacedEl.classList && !replacedEl.classList.contains('row')){
         if(!replacedEl.previousSibling || (replacedEl.previousSibling && replacedEl.previousSibling.data!='\n')){
             replacedEl.parentNode.insertBefore(document.createTextNode('\n'), replacedEl);
         }
     }
-    
-    replacedEl.parentNode.appendChild(document.createTextNode('\n'));     
+
+    replacedEl.parentNode.appendChild(document.createTextNode('\n'));
 }
 
 function dragFromMenu() {
@@ -132,9 +139,9 @@ function dragFromMenu() {
     }).on('over', function (el, container, source) {
         if(container != source){
             container.classList.toggle("drag-over");
-        } 
+        }
     }).on('out', function (el, container, source) {
-        container.classList.remove("drag-over");       
+        container.classList.remove("drag-over");
     }).on('drop', function(el, container) {
         container.classList.remove('draging');
         replaceIcoMenu(el);
@@ -154,10 +161,20 @@ function dragIsCopy(el){
 }
 
 function dragIsAcceptable(el, target){
-    if (target.classList.contains('edit')) return true;
-    if (target.classList.contains('row')) return true;
+    if (target.classList.contains('edit')) {
+        if(el.getAttribute("data-original-title")=="Row"){
+            return true;
+        }
+        if(el.getAttribute("data-original-title")=="Snippet"){
+            return true;
+        }
+    }
+    if (target.classList.contains('row')) {
+        if(el.getAttribute("data-original-title")=="Column"){
+            return true;
+        }
+    }
     if (target.classList.contains('col')) return true;
-    if (target.classList.contains('snippet-item')) return true;
     return false;
 }
 

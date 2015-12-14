@@ -6,9 +6,10 @@
 #rulerContainer {
     position: relative;
     background-color: #EDEDED;
-    border-top: 1px solid #D9D9D9;
+    border-top: 1px solid #FFF;
     border-bottom: 1px solid #D9D9D9;
     height: 14px;
+    z-index: 99;
 }
 
 .ruler-col {
