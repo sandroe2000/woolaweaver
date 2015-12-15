@@ -36,6 +36,7 @@ function getColumn() {
 function getLabel() {
     var label = document.createElement("label");
         label.setAttribute("id", "lbl"+getId());
+        label.setAttribute("contenteditable", true);
     var text = document.createTextNode("Label:");
     label.appendChild(text);
     return label;
@@ -62,38 +63,33 @@ function getSideMenuSnippet(code){
     return snippet.toDomElement();
 }
 
-function replaceIcoMenu(el) {
+function setElementDrag(el) {
 
     var title = el.getAttribute("data-original-title");
     var code = el.getAttribute("data-code");
-    var replacedEl;
-    var isColumn = false;
-    var isContainer = false;
+    var node;
 
     switch (title) {
         case 'Label':
-            replacedEl = getLabel();
+            node = getLabel();
             break;
         case 'Input Text':
-            replacedEl = getInput('text');
+            node = getInput('text');
             break;
         case 'Input Password':
-            replacedEl = getInput('password');
+            node = getInput('password');
             break;
         case 'Column':
-            isColumn = true;
-            isContainer = true;
-            replacedEl = getColumn();
+            node = getColumn();
             break;
         case 'Row':
-            isContainer = true;
-            replacedEl = getRow();
+            node = getRow();
             break;
         case 'Textarea':
-            replacedEl = getTextarea();
+            node = getTextarea();
             break;
         case 'Snippet':
-            replacedEl = getSideMenuSnippet(code);
+            node = getSideMenuSnippet(code);
             break;
         default:
             return false;
@@ -104,36 +100,33 @@ function replaceIcoMenu(el) {
         console.log("Drop error: "+el.innerHTML+", el.parentNode: null");
         return;
     }
-    el.parentNode.appendChild(replacedEl);
-    replacedEl.parentNode.removeChild(el);
+    el.parentNode.appendChild(node);
+    node.parentNode.removeChild(el);
 
-    //TODO - RESPONSABILIDADE DE "isColumn" PARA UMA FUNÇÃO RECURSIVA
-    if (isColumn) {
-        replacedEl.addEventListener('click', initResize, false);
-    }
+    listDOM(node, setEventToDOM);
 
-    //TODO - RESPONSABILIDADE DE "isContainer" PARA UMA FUNÇÃO RECURSIVA
-    if (isContainer) {
-        pushContainer(replacedEl);
-    }
-
-    if(replacedEl.classList && !replacedEl.classList.contains('row')){
-        if(!replacedEl.previousSibling || (replacedEl.previousSibling && replacedEl.previousSibling.data!='\n')){
-            replacedEl.parentNode.insertBefore(document.createTextNode('\n'), replacedEl);
+    if(node.classList && !node.classList.contains('row')){
+        if(!node.previousSibling || (node.previousSibling && node.previousSibling.data!='\n')){
+            node.parentNode.insertBefore(document.createTextNode('\n'), node);
         }
     }
 
-    replacedEl.parentNode.appendChild(document.createTextNode('\n'));
+    node.parentNode.appendChild(document.createTextNode('\n'));
+}
+
+function isLabel(event){
+    event.stopPropagation();
+    this.focus();
 }
 
 function dragFromMenu() {
 
     drake = dragula({
         copy: function(el, source) {
-            return dragIsCopy(el);
+            return isCopy(el);
         },
         accepts: function(el, target) {
-            return dragIsAcceptable(el, target);
+            return isAcceptable(el, target);
         },
         removeOnSpill: true
     }).on('over', function (el, container, source) {
@@ -144,7 +137,7 @@ function dragFromMenu() {
         container.classList.remove("drag-over");
     }).on('drop', function(el, container) {
         container.classList.remove('draging');
-        replaceIcoMenu(el);
+        setElementDrag(el);
     });
 
     pushContainer(document.querySelector('.sub-menu'));
@@ -154,13 +147,13 @@ function dragFromMenu() {
 
 }
 
-function dragIsCopy(el){
+function isCopy(el){
     if (el.classList.contains('action-btn')) return true;
     if (el.classList.contains('snippet-item')) return true;
     return false;
 }
 
-function dragIsAcceptable(el, target){
+function isAcceptable(el, target){
     if (target.classList.contains('edit')) {
         if(el.getAttribute("data-original-title")=="Row"){
             return true;

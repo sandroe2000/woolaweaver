@@ -6,6 +6,10 @@ body {
     overflow: hidden;
 }
 
+label:hover{
+    cursor:text;
+}
+
 main {
     position: absolute;
     float: left;

@@ -6,6 +6,7 @@ var containerSize = document.querySelector('#mainContainer').offsetWidth;
 function initResize() {
     el = this;
     if(!el.classList.contains('col')) return;
+    if(el.classList.contains('resizable')) return;
     el.classList.add('resizable');
     var resizer = document.createElement('div');
     resizer.classList.add('resizer');

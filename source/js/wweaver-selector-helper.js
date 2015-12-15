@@ -29,11 +29,11 @@ function getChildenByClass(baseElement, wantedElementClass) {
     return null;
 }
 
-function removeAttributeSelecorAll(elements) {
+function removeAttributeSelecorAll(elements, attr) {
     [].forEach.call(
         elements,
         function(el) {
-            el.removeAttribute("style");
+            el.removeAttribute(attr);
         }
     );
 }
