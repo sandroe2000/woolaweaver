@@ -21,20 +21,17 @@ function toggleSideMenu() {
     }
 }
 
-function setSnippet(){
-	/*
-	var encodedData = window.btoa("Hello, world"); // encode a string
-	var decodedData = window.atob(encodedData); // decode the string
-	*/
-
-	var title = document.querySelector('#snpTitle').value;
-	var code = document.querySelector('#snpCode').value;
-	var faIcon = document.querySelector('#snpIcon').value;
-	var list = document.querySelector('.snippets');
+function getSnippetModal(){
 
 	var myModal = document.querySelector('#myModal');
-	var modal = new Modal( myModal );
+	var snippetModal = new Modal( myModal );
 
+	return snippetModal;
+}
+
+function setSnippet(description, code, icon){
+
+	var list = document.querySelector('.snippets');
 	var newSnippet = document.createElement("li");
 		newSnippet.classList.add("snippet-item");
 		newSnippet.setAttribute("data-original-title", "Snippet");
@@ -42,15 +39,50 @@ function setSnippet(){
 
 		newSnippet.setAttribute("id", "snp"+getId());
 
-	var icon = document.createElement("i");
-		icon.classList.add("fa");
-		icon.classList.add(faIcon);
+	var faIcon = document.createElement("i");
+		faIcon.classList.add("fa");
+		faIcon.classList.add(icon);
 
-	newSnippet.appendChild( icon );
-	newSnippet.appendChild( document.createTextNode(title) );
+	newSnippet.appendChild( faIcon );
+	newSnippet.appendChild( document.createTextNode(description) );
 	//TODO - CODE REPRESENTATION
 	list.appendChild(newSnippet);
-
-	modal.close();
-
 }
+
+function addSnippet(){
+
+	var description = document.querySelector('#snpDescription').value;
+	var icon = document.querySelector('#snpIcon').value;
+	var code = document.querySelector('#snpCode').value;
+	
+	var snippetModal = getSnippetModal();
+	
+	setSnippet(description, code, icon);
+	snippetModal.close();
+}
+
+function loadSnippets(){
+
+	$.ajax({
+    	url: "http://localhost:1111/snippet/",
+   		method: "GET",
+   		crossDomain: true,
+   		datatype: 'application/json',	                 
+        success: function(ajax) {
+            $.each(ajax, function(index, item){
+                setSnippet(
+                	item.description,                 	 
+                	item.icon,
+                	item.code
+                );
+            });
+      	},
+      	error: function(event, request, settings) {
+            console.log("Erro ao carregar snippets do DB - " + request.responseText);
+        }
+	});
+}
+
+(function(){
+	loadSnippets();
+})();
