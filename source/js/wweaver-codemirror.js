@@ -24,7 +24,7 @@ function toggleEditor() {
             editorBody.innerHTML = editor.getValue();
         main.innerHTML = editor.getValue();
         listDOM(main, setEventToDOM);
-        console.log(total_cols);
+        //console.log(total_cols);
     } else {
         editor.setValue(main.innerHTML);
         for (var i = 0; i < editor.lineCount(); i++) {

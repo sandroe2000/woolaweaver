@@ -21,68 +21,91 @@ function toggleSideMenu() {
     }
 }
 
-function getSnippetModal(){
+function getSnippetModal() {
 
-	var myModal = document.querySelector('#myModal');
-	var snippetModal = new Modal( myModal );
+    var myModal = document.querySelector('#myModal');
+    var snippetModal = new Modal(myModal);
 
-	return snippetModal;
+    return snippetModal;
 }
 
-function setSnippet(description, code, icon){
+function setSnippet(description, icon, code) {
 
-	var list = document.querySelector('.snippets');
-	var newSnippet = document.createElement("li");
-		newSnippet.classList.add("snippet-item");
-		newSnippet.setAttribute("data-original-title", "Snippet");
-		newSnippet.setAttribute("data-code", window.btoa(code)); //ENCODE BASE 64
+    var list = document.querySelector('.snippets');
+    var newSnippet = document.createElement("li");
+    newSnippet.classList.add("snippet-item");
+    newSnippet.setAttribute("data-original-title", "Snippet");
+    newSnippet.setAttribute("data-code", code);
 
-		newSnippet.setAttribute("id", "snp"+getId());
+    newSnippet.setAttribute("id", "snp" + getId());
 
-	var faIcon = document.createElement("i");
-		faIcon.classList.add("fa");
-		faIcon.classList.add(icon);
+    var faIcon = document.createElement("i");
+    faIcon.classList.add("fa");
+    faIcon.classList.add(icon);
 
-	newSnippet.appendChild( faIcon );
-	newSnippet.appendChild( document.createTextNode(description) );
-	//TODO - CODE REPRESENTATION
-	list.appendChild(newSnippet);
+    newSnippet.appendChild(faIcon);
+    newSnippet.appendChild(document.createTextNode(description));
+    //TODO - CODE REPRESENTATION
+    list.appendChild(newSnippet);
 }
 
-function addSnippet(){
 
-	var description = document.querySelector('#snpDescription').value;
-	var icon = document.querySelector('#snpIcon').value;
-	var code = document.querySelector('#snpCode').value;
-	
-	var snippetModal = getSnippetModal();
-	
-	setSnippet(description, code, icon);
-	snippetModal.close();
-}
+function getSnippets() {
 
-function loadSnippets(){
-
-	$.ajax({
-    	url: "http://localhost:1111/snippet/",
-   		method: "GET",
-   		crossDomain: true,
-   		datatype: 'application/json',	                 
+    $.ajax({
+        url: "http://localhost:1111/snippet/",
+        method: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+		cache: false,
+        dataType: "json",
         success: function(ajax) {
-            $.each(ajax, function(index, item){
-                setSnippet(
-                	item.description,                 	 
-                	item.icon,
-                	item.code
-                );
-            });
-      	},
-      	error: function(event, request, settings) {
-            console.log("Erro ao carregar snippets do DB - " + request.responseText);
+            if (ajax) {
+                $.each(ajax, function(index, item) {
+                    setSnippet(
+                        item.description,
+                        item.icon,
+                        item.code
+                    );
+                });
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log("Erro ao executar getSnippets() - " + textStatus);
         }
-	});
+    });
 }
 
-(function(){
-	loadSnippets();
+function addSnippet() {
+
+	var description = $("#snpDescription").val();
+	var icon = $("#snpIcon").val();
+	var code = window.btoa($("#snpCode").val());
+
+	var snippetModal = getSnippetModal();
+	snippetModal.close()
+
+    $.ajax({
+        url: "http://localhost:1111/snippet",
+        method: "POST",
+        crossDomain: true,
+        data: '{"description":"'+description+'","icon":"'+icon+'","code":"'+code+'"}',
+		contentType: "application/json",
+		cache: false,
+        dataType: "json",
+        complete: function(jqXHR, textStatus) {
+            setSnippet(description, icon, code);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log("Erro ao executar addSnippet() - " + textStatus);
+        }
+    });
+}
+
+function cleanSnippets() {
+	$('.snippets').empty();
+}
+
+(function() {
+    getSnippets();
 })();
