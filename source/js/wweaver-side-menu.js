@@ -53,7 +53,7 @@ function setSnippet(description, icon, code) {
 function getSnippets() {
 
     $.ajax({
-        url: "http://localhost:1111/snippet/",
+        url: "http://localhost:8080/snippet/",
         method: "GET",
         crossDomain: true,
         contentType: "application/json",
@@ -86,7 +86,7 @@ function addSnippet() {
 	snippetModal.close()
 
     $.ajax({
-        url: "http://localhost:1111/snippet",
+        url: "/snippet",
         method: "POST",
         crossDomain: true,
         data: '{"description":"'+description+'","icon":"'+icon+'","code":"'+code+'"}',

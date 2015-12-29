@@ -41,5 +41,5 @@ function removeAttributeSelecorAll(elements, attr) {
 String.prototype.toDomElement = function() {
     var wrapper = document.createElement('div');
     wrapper.innerHTML = this;
-    return wrapper.childNodes[0];
+    return wrapper;
 };
