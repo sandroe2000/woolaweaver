@@ -1,0 +1,19 @@
+{
+    "endpints": [
+        {
+            "id": 1,
+            "descricao": "categorias",
+            "uri": "http://localhost:3000/data/categorias",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        }
+    ]
+}

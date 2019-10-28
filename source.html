@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/img/favicons/favicon.ico" />
+        <link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/assets/material-design-icons/css/material-icons.min.css" />
+        <link rel="stylesheet" href="/source/css/app.css" />
+        <title>Layout</title>
+    </head>
+    <body>
+
+        <div class="nav-app">
+            <i class="mdi mdi-widgets ico-rotate-90 mb-5" style="color:#03a9f4; font-size:48px"></i>
+            <button class="btn btn-light btn-sm" type="button">
+                <i class="mdi mdi-search"></i>
+            </button>
+            <a href="/project.html">
+                <button class="btn btn-light btn-sm" type="button">
+                    <i class="mdi mdi-code"></i>
+                </button>
+            </a>
+            <a href="/profile.html">               
+                <button class="btn btn-light btn-sm" type="button">
+                    <i class="mdi mdi-person"></i>
+                </button>
+            </a>
+            <div class="btn-bottom">
+                <button class="btn btn-light btn-sm" type="button">
+                    <i class="mdi mdi-report-problem"></i>
+                </button>
+                <a href="/index.html">
+                    <button class="btn btn-light btn-sm" type="button">
+                        <i class="mdi mdi-exit-to-app"></i>
+                    </button>
+                </a> 
+            </div>
+        </div>
+
+        <div class="main-app">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Sandro Cesário Di Espindula</a></li>
+                    <li class="breadcrumb-item">woolaweaver</li>
+                </ol>
+            </nav>
+
+            <h4>ansi-regex</h4>
+
+            <form class="form-inline">
+                <div class="form-group mb-2 mt-3">
+                    <select class="form-control combo-branch">
+                        <option>master</option>
+                    </select>
+                </div>          
+                
+                <div class="dropdown">
+                    <button class="btn btn-light mb-2 ml-3 mt-3 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-2 fa-ellipsis-v" aria-hidden="true"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFolder">
+                            <i class="fa fa-folder-open-o" aria-hidden="true"></i> New Folder
+                        </button>
+                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFile">
+                            <i class="fa fa-file-o" aria-hidden="true"></i> New File
+                        </button>
+                    </div>
+                </div>
+                
+            </form>
+
+            <nav aria-label="breadcrumb">
+                <i class="fa fa-folder" aria-hidden="true"></i>
+                <ol class="breadcrumb breadcrumb-folder">
+                    <li class="breadcrumb-item"><a href="#">woolaweaver</a></li>
+                    <li class="breadcrumb-item"><a href="#">node_modules</a></li>
+                    <li class="breadcrumb-item"><a href="#">ansi-regex</a></li>
+                </ol>
+            </nav>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="th-30">Name</th>
+                            <th class="th-10 txt-r">Size</th>
+                            <th class="th-1">Last commit</th>
+                            <th class="th-40">Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="#"><i class="fa fa-folder" aria-hidden="true"></i> back</a>
+                            </td>
+                            <td class="txt-r"></td>
+                            <td>2019-08-15</td>
+                            <td>Correções pesquisa home e categoria, card</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#"><i class="fa fa-folder" aria-hidden="true"></i> front</a>
+                            </td>
+                            <td class="txt-r"></td>
+                            <td>2019-08-15</td>
+                            <td>Correções pesquisa home e categoria, card</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="/htmlVisualEditor.html?fileId=0"><i class="fa fa-file-text-o" aria-hidden="true"></i> .gitignore</a>
+                            </td>
+                            <td class="txt-r">132 B</td>
+                            <td>2019-08-15</td>
+                            <td>Atualizando</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="modal fade" id="modalCreateFolder" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">...</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="col-form-label">Message:</label>
+                                <input type="text" class="form-control" id="message" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+	    <script src="/assets/jquery/dist/jquery.min.js"></script>
+        <script src="/assets/popper.js/dist/umd/popper.min.js"></script>
+        <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/source/js/source.js"></script>
+    </body>
+</html>

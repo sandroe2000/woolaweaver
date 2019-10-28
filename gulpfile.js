@@ -1,61 +1,30 @@
-'use strict';
+(() => {
 
-var gulp = require('gulp');
-var connect = require('gulp-connect');
-var uglify = require("gulp-uglify");
-var concat = require("gulp-concat");
-var cssmin = require("gulp-cssmin");
-var stripCssComments = require('gulp-strip-css-comments');
-var proxy = require('http-proxy-middleware');
+  'use strict';
 
-var files = [
-    '*.html',
-    'template/*.*',
-    'source/**/*.*'
-];
+  const gulp = require('gulp');
+  const browsersync   = require('browser-sync').create();
 
-gulp.task('minify-js', function() {
-    gulp.src([
-            'source/js/l*js'
-        ])
-        .pipe(concat('wweaver.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('js/'));
-});
-
-gulp.task('minify-css', function() {
-    gulp.src([
-            'source/css/*.css'
-        ])
-        .pipe(concat('wweaver.min.css'))
-        .pipe(stripCssComments({
-            all: true
-        }))
-        .pipe(cssmin())
-        .pipe(gulp.dest('css/'));
-});
-
-gulp.task('files', function() {
-    gulp.src(files)
-        .pipe(connect.reload());
-});
-
-gulp.task('watch', function() {
-    gulp.watch(files, ['files', 'minify-js', 'minify-css']);
-});
-
-gulp.task('connect', function() {
-    connect.server({
-        livereload: true,
-        middleware: function(connect, opt) {
-            return [
-                proxy('/snippet', {
-                    target: 'http://localhost:1111',
-                    changeOrigin: true
-                })
-            ]
-        }
+  const files = [
+    './*.html',
+    './source/js/*.js',
+    './source/css/*.css'
+  ];
+  
+  function watch (){
+    browsersync.init({
+      server: {
+        baseDir   : './',
+        index     : 'index.html'
+      },
+      port        : 3000,
+      open        : false
     });
-});
+  }
+  
+  gulp.watch(files).on('change', browsersync.reload);
+  const dev = gulp.series(watch);
 
-gulp.task('default', ['connect', 'watch', 'minify-js', 'minify-css']);
+  exports.default = dev;
+
+})();

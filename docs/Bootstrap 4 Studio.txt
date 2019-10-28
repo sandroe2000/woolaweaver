@@ -1,0 +1,22 @@
+-----------------------------
+Bootstrap 4 Html Studio
+-----------------------------
+
+core.js
+
+Self-Execution Anoymous function: dragFromMenu()
+
+Inicia plugin jQuery "Dragula" responsavel por ouvir os eventos de Drag-n-Drop entre objectos nos "containers".
+Funções auxiliares isCopy(el), isAcceptable(el, target), setElementDrag(el), pushContainer(el).
+
+
+Criando uma linha(<div class="row"></div>)
+
+Arrastamos o icone row para o paienl a função isCopy valida a origem do objeto que esta sendo arrastado para o painel, retornando "true" ou "false", se true executa uma copia do objeto para o container onde será largado.
+A função isAcceptable valida se a transação é permitida, regras para determinar qual objeto pode se dropado dentro de qual container, alguns objetos assim que são dropados ganham status de container.
+
+Assim que um objeto é dropado a função setElementDrag(el) é disparada, esta função identifica o objeto do drop e chama outra função que constroi um DOM Element correpondente ao icone, e subistitiu o icone copiado do menu para o painel pelo DOM Element criado.
+Em seguida chama listDOM(node, setEventToDOM) que percorerá recursivamente a arvore DOM do node recem criado submetendo ele a função setEventToDOM que chama outras funções para determinar qual eventos serão atribuidos a cada tipo de childNode dentro no DOM Element.
+
+A função pushContainer seta o status de container para certos objetos.
+

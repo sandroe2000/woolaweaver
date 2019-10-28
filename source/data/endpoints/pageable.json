@@ -1,0 +1,163 @@
+{
+    "content": [
+        {
+            "id": 1,
+            "descr": "categorias",
+            "uri": "http://localhost:3000/data/categorias",
+            "disabled": "",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        },{
+            "id": 2,
+            "descr": "Modalidades",
+            "uri": "http://localhost:3000/data/modalidades",
+            "disabled": "29/09/2019",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        },{
+            "id": 3,
+            "descr": "Modalidades",
+            "uri": "http://localhost:3000/data/modalidades",
+            "disabled": "29/09/2019",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        },{
+            "id": 4,
+            "descr": "Modalidades",
+            "uri": "http://localhost:3000/data/modalidades",
+            "disabled": "29/09/2019",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        },{
+            "id": 5,
+            "descr": "Modalidades",
+            "uri": "http://localhost:3000/data/modalidades",
+            "disabled": "29/09/2019",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        },{
+            "id": 6,
+            "descr": "Modalidades",
+            "uri": "http://localhost:3000/data/modalidades",
+            "disabled": "29/09/2019",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        },{
+            "id": 7,
+            "descr": "Modalidades",
+            "uri": "http://localhost:3000/data/modalidades",
+            "disabled": "29/09/2019",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        },{
+            "id": 8,
+            "descr": "Modalidades",
+            "uri": "http://localhost:3000/data/modalidades",
+            "disabled": "29/09/2019",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        },{
+            "id": 9,
+            "descr": "Modalidades",
+            "uri": "http://localhost:3000/data/modalidades",
+            "disabled": "29/09/2019",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        },{
+            "id": 10,
+            "descr": "Modalidades",
+            "uri": "http://localhost:3000/data/modalidades",
+            "disabled": "29/09/2019",
+            "fiels": [
+                {
+                    "field": "id",
+                    "type": "NUMBER"
+                },
+                {
+                    "field": "text",
+                    "type": "TEXT"
+                }
+            ]
+        }
+    ],
+    "last": false,
+    "totalElements": 10,
+    "totalPages": 1,
+    "size": 10,
+    "number": 0,
+    "sort": null,
+    "first": true,
+    "numberOfElements": 10
+  }

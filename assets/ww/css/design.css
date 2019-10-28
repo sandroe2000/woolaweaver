@@ -1,0 +1,28 @@
+div.main-content.container-fluid.edit div.row,
+div.main-content.container-fluid.edit [class*="col-md-"],
+div.main-content.container-fluid.edit form,
+div.main-content.container-fluid.edit .form-group,
+div.main-content.container-fluid.edit .panel-body {
+    margin-top: 7px;
+    margin-bottom: 7px;
+    border: 1px dashed #B3B3B3;
+    min-height: 30px;
+    background: #FFFFFF;
+}
+
+div.main-content.container-fluid.edit [class*="radio"],
+div.main-content.container-fluid.edit [class*="checkbox"] {
+    border: 1px dashed #B3B3B3;
+    background: #FFFFFF;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+div.main-content.container-fluid .active {
+    border: 1px dashed orangered !important;
+    background: #FFFFCC !important;
+}
+
+.hilight {
+    background: #D4FFDD !important;
+}

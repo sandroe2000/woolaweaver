@@ -1,0 +1,478 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    overflow: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 66px;
+    background: #252830;
+}
+
+.header-logo-client {
+    float: left;
+    margin: 15px 0px 0px 15px;
+    width: 180px;
+}
+
+.header-menu {
+    float: left;
+    margin: 25px 0px 0px 15px;
+    width: 300px;
+}
+
+.header-menu a {
+    color: #FFF;
+    margin-right: 20px;
+}
+
+.header-controller {
+    float: right;
+    margin: 20px 0px 0px 15px;
+    width: 320px;
+    text-align: right;
+}
+
+.btn-controller {
+    padding: 0px 10px 0px 10px;
+    margin: 4px 0px 0px 4px;
+    height: 24px;
+    color: #1997C5;
+    font-size: 12px;
+    background-color: transparent;
+    border-color: #1997C5;
+    border-radius: 3px;
+}
+
+.btn-controller:hover,
+.btn-controller:active,
+.btn-controller:focus {
+    color: #FFF;
+    background-color: #1997C5;
+    border-color: #1997C5;
+}
+
+aside {
+    position: absolute;
+    top: 66px;
+    left: 0px;
+    width: 66px;
+    bottom: 20px;
+    background: #30343E;
+}
+
+.btn-aside-menu {
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    margin: 4px 0px 0px 4px;
+    color: #1997C5;
+    background-color: #30343E;
+    border-color: #1997C5;
+    border-radius: 3px;
+}
+
+.btn-aside-menu:hover,
+.btn-aside-menu:active,
+.btn-aside-menu:focus {
+    color: #FFF;
+    background-color: #1997C5;
+    border-color: #1997C5;
+    margin: 4px 0px 0px 4px;
+}
+
+.btn-active {
+    color: #FFF;
+    background-color: #1997C5;
+    border-color: #1997C5;
+    margin: 4px 0px 0px 4px;
+}
+
+.asise-separator {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+    font-size: 11px;
+    color: #CFD2DA;
+    text-align: center;
+}
+
+main {
+    position: absolute;
+    top: 66px;
+    left: 66px;
+    right: 260px;
+    bottom: 20px;
+    background: #30343E;
+}
+
+main.expand {
+    right: 0px;
+}
+
+.main-ruler {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    right: 0px;
+    height: 11px;
+    background: #434857;
+    border-radius: 3px;
+}
+
+.rule-dash {
+    float: left;
+    color: #000;
+}
+
+div.main-ruler div.col-md-1 {
+    text-align: right;
+    font-size: 9px;
+    color: #FFF;
+    margin-bottom: 10px;
+    border-right: 1px dashed orange;
+}
+
+.main-content {
+    position: absolute;
+    margin: 5px 0 5px 0;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    top: 16px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #FFF;
+    overflow: auto;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: #F1F1F1;
+    border-radius: 12px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    background: #C1C1C1;
+    border: 3px solid #F1F1F1;
+    cursor: pointer;
+}
+
+.main-content::-webkit-scrollbar-corner {
+    background: #C1C1C1;
+}
+
+section {
+    position: absolute;
+    top: 66px;
+    width: 260px;
+    right: 0px;
+    bottom: 20px;
+    background: #30343E;
+}
+
+section #drag {
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    cursor: col-resize;
+}
+
+section.collapse {
+    right: -260px;
+}
+
+.input-sm {
+    height: 22px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 22px;
+    border-radius: 3px;
+    background: #434857;
+    border-color: #434857;
+    color: #CFD2DA;
+}
+
+.input-group-sm input[type=date],
+.input-group-sm input[type=time],
+.input-group-sm input[type=datetime-local],
+.input-group-sm input[type=month],
+input[type=date].input-sm,
+input[type=time].input-sm,
+input[type=datetime-local].input-sm,
+input[type=month].input-sm {
+    line-height: 22px
+}
+
+select.input-sm {
+    padding: 2px 5px;
+    height: 22px;
+    line-height: 23px
+}
+
+.btn-group-sm>.btn,
+.btn-sm {
+    padding: 0px 6px;
+    font-size: 12px;
+    line-height: 20px;
+    border-radius: 3px;
+    background: #434857;
+    border-color: #434857;
+    color: #CFD2DA;
+}
+
+.btn-group-sm>.btn:hover,
+.btn-sm:hover {
+    background: #373B47;
+    border-color: #434857;
+    color: #CFD2DA;
+}
+
+.control-label {
+    font-size: 11px;
+    font-weight: normal;
+    color: #CFD2DA;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: #434857;
+    opacity: 1;
+}
+
+footer {
+    position: absolute;
+    height: 20px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #30343E;
+}
+
+
+/*--------- SECTION ----------------*/
+
+section table {
+    margin: 4px;
+    min-width: 227px;
+    width: 100%;
+}
+
+section table tbody tr td {
+    width: 50%;
+    padding: 1px 1px;
+    border: 1px solid #CECECE;
+    color: #30343E;
+    font-size: 12px;
+    background: #FFF;
+}
+
+section .txtLabel {
+    text-align: right;
+    padding-right: 5px;
+}
+
+section input,
+section select {
+    width: 100%;
+    border: 1px solid #FFF;
+    padding: 2px;
+    background: #FFF;
+    font-size: 12px;
+    color: #30343E;
+}
+
+.section-wraper {
+    margin: 4px;
+    border: 1px solid #434857;
+    border-radius: 3px;
+    height: calc(100% - 10px);
+    overflow: auto;
+}
+
+
+/* message box */
+
+.message-box {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.message-box.open {
+    display: block;
+}
+
+.message-box .mb-container {
+    position: absolute;
+    left: 0px;
+    top: 35%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    width: 100%;
+}
+
+.message-box .mb-container .mb-middle {
+    width: 50%;
+    left: 25%;
+    position: relative;
+    color: #FFF;
+}
+
+.message-box .mb-container .mb-middle .mb-title {
+    width: 100%;
+    float: left;
+    padding: 10px 0px 0px;
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.message-box .mb-container .mb-middle .mb-title .fa,
+.message-box .mb-container .mb-middle .mb-title .glyphicon {
+    font-size: 38px;
+    float: left;
+    margin-right: 10px;
+}
+
+.message-box .mb-container .mb-middle .mb-content {
+    width: 100%;
+    float: left;
+    padding: 10px 0px 0px;
+}
+
+.message-box .mb-container .mb-middle .mb-content p {
+    margin-bottom: 0px;
+}
+
+.message-box .mb-container .mb-middle .mb-footer {
+    width: 100%;
+    float: left;
+    padding: 10px 0px;
+}
+
+.message-box.message-box-warning .mb-container {
+    background: rgba(254, 162, 35, 0.9);
+}
+
+.message-box.message-box-danger .mb-container {
+    background: rgba(182, 70, 69, 0.9);
+}
+
+.message-box.message-box-info .mb-container {
+    background: rgba(63, 186, 228, 0.9);
+}
+
+.message-box.message-box-success .mb-container {
+    background: rgba(149, 183, 93, 0.9);
+}
+
+
+/* end message box */
+
+.dropdown-menu label {
+    display: inline-block;
+    margin: 5px 15px;
+    font-weight: normal;
+}
+
+.dropdown-menu label input {
+    position: absolute;
+    margin: 4px 0px;
+}
+
+.dropdown-menu label span {
+    margin-left: 15px;
+}
+
+
+/* Start - Snackbar */
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #1997C5;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 16px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    bottom: 50%;
+    font-size: 24px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.2s, fadeout 2.5s;
+    animation: fadein 0.2s, fadeout 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 50%;
+        opacity: 0;
+    }
+    to {
+        bottom: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 50%;
+        opacity: 0;
+    }
+    to {
+        bottom: 50%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 50%;
+        opacity: 1;
+    }
+    to {
+        bottom: 50%;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 50%;
+        opacity: 1;
+    }
+    to {
+        bottom: 50%;
+        opacity: 0;
+    }
+}
+
+
+/* End - Snackbar */

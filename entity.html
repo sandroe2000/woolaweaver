@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="icon" href="img/favicons/favicon.ico" />
+        <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="assets/material-design-icons/css/material-icons.min.css" />
+        <link rel="stylesheet" href="assets/confirmRemove/css/confirmRemove.css" />
+        <link rel="stylesheet" href="source/css/app.css" />
+        <title>Layout</title>
+    </head>
+    <body>
+
+        <div class="nav-app">
+
+            <i class="mdi mdi-widgets ico-rotate-90 mb-5" style="color:#03a9f4; font-size:48px"></i>
+
+            <button class="btn btn-light btn-sm" type="button">
+                <i class="mdi mdi-search"></i>
+            </button>
+            <button class="btn btn-light btn-sm" type="button">
+                <i class="mdi mdi-add-circle-outline"></i>
+            </button>
+            <a href="project.html">
+                <button class="btn btn-light btn-sm" type="button">
+                    <i class="mdi mdi-code"></i>
+                </button>
+            </a> 
+            <a href="profile.html">               
+                <button class="btn btn-light btn-sm" type="button">
+                    <i class="mdi mdi-person"></i>
+                </button>
+            </a>
+            <div class="btn-bottom">
+                <button id="toggleLeftMenu" class="btn btn-light btn-sm" style="background: #03a9f4;" type="button">
+                    <i class="mdi mdi-last-page" style="color:#FFF"></i>
+                </button>
+                <button class="btn btn-light btn-sm" type="button">
+                    <i class="mdi mdi-report-problem"></i>
+                </button>
+                <a href="index.html">
+                    <button class="btn btn-light btn-sm" type="button">
+                        <i class="mdi mdi-power-settings-new"></i>
+                    </button>
+                </a>                
+            </div>
+        </div>
+        <div class="main-menu">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" id="search">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">Pessoa</li>
+                <li class="list-group-item">- Dados Cadastrais</li>
+                <li class="list-group-item">Manifestação</li>
+                <li class="list-group-item">Informação</li>
+            </ul>
+        </div>
+        <div class="main-app">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Sandro Cesário Di Espindula</li>
+                </ol>
+            </nav>
+
+            <h4>index.html</h4>
+
+            <p>What information would you like to collect from your users?</p>
+
+            <div class="row">
+                <div class="col-md-12 fieldsContainer">
+                    <a class="btn btn-light mb-3" href="#" id="addField">Add Field</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="msgContainer"></div> 
+        <div class="right-menu"></div>         
+        <button id="toggleRightMenu" class="btn btn-light"><i class="mdi mdi-first-page"></i></button>
+
+	    <script src="assets/jquery/dist/jquery.min.js"></script>
+        <script src="assets/popper.js/dist/umd/popper.min.js"></script>
+        <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="assets/confirmRemove/js/confirmRemove.js"></script>
+        <script src="source/js/formWizard2.js"></script>
+        <script src="source/js/app.js"></script>
+    </body>
+</html

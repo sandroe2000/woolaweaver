@@ -1,161 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/img/favicons/favicon.ico" />
+        <link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/assets/material-design-icons/css/material-icons.min.css" />
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Woolaweaver</title>
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="lib/fontawesome-iconpicker/css/fontawesome-iconpicker.min.css" rel="stylesheet" />
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="lib/dragula/dragula.min.css" rel="stylesheet" />
-    <link href="lib/codemirror/lib/codemirror.css" rel="stylesheet" />
-    <link href="lib/codemirror/theme/eclipse.css" rel="stylesheet" />
-    <link href="source/css/wweaver.css" rel="stylesheet" />
-    <link href="source/css/wweaver-drag-menu.css" rel="stylesheet" />
-    <link href="source/css/wweaver-ruler.css" rel="stylesheet" />
-    <link href="source/css/wweaver-side-menu.css" rel="stylesheet" />
-    <link href="source/css/wweaver-codemirror.css" rel="stylesheet" />
-</head>
+            body { 
+                background: url('/img/kRanI4v.jpg') no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-align: center;
+                align-items: center;
+                padding-top: 40px;
+                padding-bottom: 40px;
+                color: #FFF;
+            }
 
-<body>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Add Snippet</h4>
+            textarea:focus,
+            input[type="text"]:focus,
+            input[type="password"]:focus,
+            input[type="datetime"]:focus,
+            input[type="datetime-local"]:focus,
+            input[type="date"]:focus,
+            input[type="month"]:focus,
+            input[type="time"]:focus,
+            input[type="week"]:focus,
+            input[type="number"]:focus,
+            input[type="email"]:focus,
+            input[type="url"]:focus,
+            input[type="search"]:focus,
+            input[type="tel"]:focus,
+            input[type="color"]:focus,
+            .uneditable-input:focus {   
+                box-shadow: none;
+                outline: 0 none;
+            }
+
+            .container{
+                padding: 25px;   
+            } 
+
+            .form-signin {
+                width: 100%;
+                max-width: 330px;
+                padding: 15px;
+                margin: auto;
+            }
+            .form-signin .checkbox {
+                font-weight: 400;
+            }
+            .form-signin .form-control {
+                position: relative;
+                box-sizing: border-box;
+                height: auto;
+                padding: 10px;
+                font-size: 16px;
+            }
+            .form-signin .form-control:focus {
+                z-index: 2;
+            }
+            .form-signin input[type="email"] {
+                margin-bottom: -1px;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            .form-signin input[type="password"] {
+                margin-bottom: 10px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .text-muted{
+                color: #FFF !important; 
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+                }
+            }
+        </style>
+        <title>Layout</title>
+    </head>
+    <body>
+
+        <div class="container">
+            <form class="form-signin" action="project.html">
+
+                <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
+                
+                <label for="inputEmail" class="sr-only">Username</label>
+                <input type="email" class="form-control" placeholder="Username" autofocus />
+                
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" />
+                
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
                 </div>
-                <div class="modal-body">
-                    <form style="margin:0 10px 0 10px">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label>Description:</label>
-                                    <input class="form-control" type="text" id="snpDescription" />
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Icon:</label>
-                                    <input class="form-control icp icp-auto" type="text" id="snpIcon" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Code:</label>
-                                    <textarea class="form-control" rows="5" id="snpCode"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer" style="margin-right:10px">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button onclick="addSnippet()" type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <nav>
-        <div class="top-bar menu">
-            <div class="brand">WoolaWeaver</div>
-            <div class="btn-group">
-                <a id="dropdownFile" class="dropdown-toggle" data-toggle="dropdown">File</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownFile">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </ul>
-            </div>
-            <div class="btn-group">
-                <a id="dropdownEdit" class="dropdown-toggle" data-toggle="dropdown">Edit</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownEdit">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </ul>
-            </div>
-            <a>View</a>
-            <a>Help</a>
-        </div>
-        <div class="top-bar">
-            <div class="click-menu">
-                <a onclick="toggleEditor()" class="click-btn" data-toggle="tooltip" title="Code / Visual"><i class="fa fa-code"></i> Code/Visual</a>
-                <span class="separator">|</span>
-            </div>
-            <div class="sub-menu">
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Row"><i class="fa fa-th-list"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Column"><i class="fa fa-columns"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Nav Tab"><i class="fa fa-folder-o"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Accordion"><i class="fa fa-list-alt"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="DataTable"><i class="fa fa-table"></i></a>
-                <span class="separator">|</span>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Label"><i class="fa fa-font"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Input Text"><i class="fa fa-pencil"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Input Password"><i class="fa fa-ellipsis-h"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Input Date"><i class="fa fa-calendar"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Input Number"><i class="fa fa-sort"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Input Checkbox"><i class="fa fa-check-square-o"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Input Radio"><i class="fa fa-dot-circle-o"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Textarea"><i class="fa fa-pencil-square-o"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Select"><i class="fa fa-bars"></i></a>
-                <a class="action-btn" data-toggle="tooltip" data-original-title="Button"><i class="fa fa-square"></i></a>
-                <span class="separator">|</span>
-            </div>
-        </div>
-        <div id="rulerContainer">
-            <div id="ruler" class="container"></div>
-        </div>
-    </nav>
-    <main>
-        <div id="mainContainer" class="container edit"></div>
-        <div id="codeContainer" style="display:none">
-            <form>
-                <textarea id="code" name="code"></textarea>
+                <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+                <button class="btn btn-light btn-block" type="button">
+                    <span class="css-1vqao0l">
+                        <span class="css-t5emrf">
+                            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.36/static/media/google-logo.c21ca9d1.svg" alt="" style="height: 18px; margin-right: 8px; vertical-align: middle; width: 18px;">
+                            <span>Entrar com o Google</span>
+                        </span>
+                    </span>
+                </button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
             </form>
         </div>
-    </main>
-    <aside>
-        <div class="side-menu">
-            Snippets <a class="action-btn" data-toggle="modal" data-target="#myModal">+</a> <i class="fa fa-indent"></i>
-        </div>
-        <ul class="snippets">
-        </ul>
-    </aside>
-    <script src="lib/bootstrap/js/bootstrap-native.min.js"></script>
-    <script src="lib/jQuery/jquery-2.1.4.min.js"></script>
-    <script src="lib/fontawesome-iconpicker/js/fontawesome-iconpicker.min.js"></script>
-    <script src="lib/dragula/dragula.min.js"></script>
-    <script src="lib/codemirror/lib/codemirror.js"></script>
-    <script src="lib/codemirror/mode/xml/xml.js"></script>
-    <script src="lib/codemirror/mode/javascript/javascript.js"></script>
-    <script src="lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-    <script src="lib/codemirror/addon/edit/matchbrackets.js"></script>
-    <script src="source/js/wweaver-selector-helper.js"></script>
-    <script src="source/js/wweaver-drag-menu.js"></script>
-    <script src="source/js/wweaver-ruler.js"></script>
-    <script src="source/js/wweaver-resize-col.js"></script>
-    <script src="source/js/wweaver-side-menu.js"></script>
-    <script src="source/js/wweaver-codemirror.js"></script>
-    <script>
-    (function() {
-        menuTooltip();
-        setRuler();
-        dragFromMenu();
-        $('.icp-auto').iconpicker({
-            hideOnSelect: true
-        });
-    })();
-    </script>
-</body>
 
+	    <script src="/assets/jquery/dist/jquery.min.js"></script>
+        <script src="/assets/popper.js/dist/umd/popper.min.js"></script>
+        <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/source/js/login.js"></script>
+    </body>
 </html>

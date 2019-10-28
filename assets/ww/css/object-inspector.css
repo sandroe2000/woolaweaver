@@ -1,0 +1,122 @@
+.section-wraper::-webkit-scrollbar,
+#objectInspectorBody::-webkit-scrollbar,
+#propertiesBody::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+}
+
+.section-wraper::-webkit-scrollbar-track,
+#objectInspectorBody::-webkit-scrollbar-track,
+#propertiesBody::-webkit-scrollbar-track {
+    background: #252830;
+    border-radius: 8px;
+}
+
+.section-wraper::-webkit-scrollbar-thumb,
+#objectInspectorBody::-webkit-scrollbar-thumb,
+#propertiesBody::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #434857;
+    border: 3px solid #252830;
+    cursor: pointer;
+}
+
+.section-wraper::-webkit-scrollbar-corner,
+#objectInspectorBody::-webkit-scrollbar-corner,
+#propertiesBody::-webkit-scrollbar-corner {
+    background: #30343E;
+}
+
+.accordion-group {
+    margin: 4px;
+    border: 1px solid #1997C5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.accordion-heading {
+    padding: 4px;
+}
+
+.accordion-heading.active {
+    padding: 4px;
+    background: #1997C5;
+}
+
+.accordion-toggle.active {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.accordion-toggle,
+.accordion-toggle:active {
+    padding-left: 5px;
+    color: #1997C5;
+    text-decoration: none;
+}
+
+.accordion-toggle:hover,
+.accordion-toggle:focus {
+    padding-left: 5px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.panel-collapse {
+    border-top: 1px solid #1997C5;
+    padding: 4px;
+}
+
+#headingOne .form-group {
+    margin-bottom: 4px;
+}
+
+.breadcrumb {
+    background-color: #30343E;
+    padding: 0px;
+    margin-bottom: 0px;
+    margin-top: -2px;
+    margin-left: 66px;
+}
+
+.breadcrumb li a {
+    color: #CFD2DA;
+}
+
+ul.breadcrumb li a.active {
+    color: orange !important;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 3px 5px;
+    margin-bottom: -1px;
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    color: #CFD2DA;
+}
+
+.treeview span.icon {
+    width: 12px;
+    margin-right: 2px;
+}
+
+#treeViewTool {
+    width: 227px;
+    text-align: right;
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/img/favicons/favicon.ico" />
+        <link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/assets/material-design-icons/css/material-icons.min.css" />
+        <link rel="stylesheet" href="/source/css/app.css" />
+        <title>Layout</title>
+    </head>
+    <body>
+        
+        <div class="nav-app">
+            <i class="mdi mdi-widgets ico-rotate-90 mb-5" style="color:#03a9f4; font-size:48px"></i>
+            <button class="btn btn-light btn-sm" type="button">
+                <i class="mdi mdi-search"></i>
+            </button>
+            <button class="btn btn-light btn-sm" type="button">
+                <i class="mdi mdi-add-circle-outline"></i>
+            </button>
+            <a href="/project.html">
+                <button class="btn btn-light btn-sm" type="button">
+                    <i class="mdi mdi-code"></i>
+                </button>
+            </a>          
+            <a href="/profile.html">               
+                <button class="btn btn-light btn-sm" type="button">
+                    <i class="mdi mdi-person"></i>
+                </button>
+            </a>                   
+            <div class="btn-bottom">
+                <button class="btn btn-light btn-sm" type="button">
+                    <i class="mdi mdi-report-problem"></i>
+                </button>
+                <a href="/index.html">
+                    <button class="btn btn-light btn-sm" type="button">
+                        <i class="mdi mdi-exit-to-app"></i>
+                    </button>
+                </a> 
+            </div>
+        </div>
+        
+        <div class="main-app">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Sandro Cesário Di Espindula</a></li>
+                    <li class="breadcrumb-item">woolaweaver</li>
+                </ol>
+            </nav>
+
+            <h4>index.html</h4>
+
+
+            <form class="form-inline">
+                <select id="menuTextEditor" class="form-control mr-2">
+                    <option value="textEditorSource.html?fileId=1">Source</option>
+                    <option value="textEditorDiff.html?fileId=1">View Diff</option>
+                    <option value="history.html?fileId=1" selected>History</option>
+                </select>
+                <select class="form-control combo-branch">
+                    <option>master</option>
+                </select>
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="th-20">User</th>
+                            <th class="th-10">Version</th>
+                            <th class="th-50">Message</th>
+                            <th class="th-10">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sandro Cesário Di Espindula</td>
+                            <td>c85f240</td>
+                            <td>Open and Close drakeMenu, drakeDom</td>
+                            <td>2019-08-15</td>
+                        </tr>
+                        <tr>
+                            <td>Sandro Cesário Di Espindula</td>
+                            <td>4bd8aa2</td>
+                            <td>All buttons OK</td>
+                            <td>2019-08-14</td>
+                        </tr>
+                        <tr>
+                            <td>Sandro Cesário Di Espindula</td>
+                            <td>882d688</td>
+                            <td>Code: MathTags, Drag all Inputs, put row and tabs into any any part of edit</td>
+                            <td>2019-08-10</td>
+                        </tr>
+                        <tr>
+                            <td>Sandro Cesário Di Espindula</td>
+                            <td>0436615</td>
+                            <td>Solved Col and Row drags</td>
+                            <td>2019-08-01</td>
+                        </tr>
+                        <tr>
+                            <td>Sandro Cesário Di Espindula</td>
+                            <td>68903f0</td>
+                            <td>Enter Dragulas sorting on rows and cols</td>
+                            <td>2019-07-07</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        
+	    <script src="/assets/jquery/dist/jquery.min.js"></script>
+        <script src="/assets/popper.js/dist/umd/popper.min.js"></script>
+        <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/source/js/history.js"></script>
+    </body>
+</html>
