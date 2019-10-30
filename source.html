@@ -9,6 +9,30 @@
         <link rel="stylesheet" href="/assets/material-design-icons/css/material-icons.min.css" />
         <link rel="stylesheet" href="/source/css/app.css" />
         <title>Layout</title>
+        <style>
+            .table-fixed tbody {
+                height: 200%;
+                overflow-y: auto;
+                width: 100%;
+            }
+            .table-fixed thead,
+            .table-fixed tbody,
+            .table-fixed tr,
+            .table-fixed td,
+            .table-fixed th {
+                display: block;
+            }
+            .table-fixed tr:after {
+                content: "";
+                display: block;
+                visibility: hidden;
+                clear: both;
+            }
+            .table-fixed tbody td,
+            .table-fixed thead > tr > th {
+                float: left;
+            }
+        </style>
     </head>
     <body>
 
@@ -58,7 +82,12 @@
                 </div>          
                 
                 <div class="dropdown">
-                    <button class="btn btn-light mb-2 ml-3 mt-3 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-light mb-2 ml-3 mt-3 dropdown-toggle" 
+                            type="button" 
+                            id="dropdownMenu2" 
+                            data-toggle="dropdown" 
+                            aria-haspopup="true" 
+                            aria-expanded="false">
                         <i class="fa fa-2 fa-ellipsis-v" aria-hidden="true"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -83,41 +112,16 @@
             </nav>
 
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table id="tableSource" class="table table-hover table-fixed">
                     <thead>
                         <tr>
-                            <th class="th-30">Name</th>
-                            <th class="th-10 txt-r">Size</th>
-                            <th class="th-1">Last commit</th>
-                            <th class="th-40">Message</th>
+                            <th scope="col" class="col-4">Name</th>
+                            <th scope="col" class="col-2 txt-r">Size</th>
+                            <th scope="col" class="col-2">Last commit</th>
+                            <th scope="col" class="col-4">Message</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <a href="#"><i class="fa fa-folder" aria-hidden="true"></i> back</a>
-                            </td>
-                            <td class="txt-r"></td>
-                            <td>2019-08-15</td>
-                            <td>Correções pesquisa home e categoria, card</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#"><i class="fa fa-folder" aria-hidden="true"></i> front</a>
-                            </td>
-                            <td class="txt-r"></td>
-                            <td>2019-08-15</td>
-                            <td>Correções pesquisa home e categoria, card</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="/htmlVisualEditor.html?fileId=0"><i class="fa fa-file-text-o" aria-hidden="true"></i> .gitignore</a>
-                            </td>
-                            <td class="txt-r">132 B</td>
-                            <td>2019-08-15</td>
-                            <td>Atualizando</td>
-                        </tr>
-                    </tbody>
+                    <tbody style="height: calc(100vh - 230px) !important;"></tbody>
                 </table>
             </div>
 

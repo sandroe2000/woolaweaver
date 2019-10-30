@@ -1,4 +1,4 @@
-'use strict';
+;'use strict';
 
 $('#toggleLeftMenu').on('click', function(event){
     $('.main-menu').toggleClass('left-to-right');

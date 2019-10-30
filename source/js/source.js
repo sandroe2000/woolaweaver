@@ -1,3 +1,5 @@
+;'use strict';
+
 $('.modal').on('show.bs.modal', function (event) {
     let button = $(event.relatedTarget);
     let modal = $(this);
@@ -30,3 +32,62 @@ $('div.modal-footer > button.btn.btn-primary').on('click', function(event){
     $('table tbody > tr:first').before(template);
     $('#modalCreateFolder').modal('hide');
 });
+
+function showFolder(data){
+
+    let link = "", 
+        classIcon = "", 
+        name = "", 
+        size = "",
+        modified = "",
+        message = "";
+
+    if(data.folders){
+        for(let i=0; i<data.folders.length; i++){
+            let tr = `<tr>
+                        <td scope="col" class="col-4">
+                            <a href="http://localhost:3000/source.html?folderId=${data.folders[i].id}">
+                                <i class="fa fa-folder" aria-hidden="true"></i> ${data.folders[i].name}
+                            </a>
+                        </td>
+                        <td scope="col" class="col-2 txt-r"></td>
+                        <td scope="col" class="col-2">${data.folders[i].modified}</td>
+                        <td scope="col" class="col-4"></td>
+                    </tr>`
+            $('#tableSource tbody').append(tr);
+        }
+    }
+
+    if(data.files){
+        for(let i=0; i<data.files.length; i++){
+            let tr = `<tr>
+                        <td scope="col" class="col-4">
+                            <a href="http://localhost:3000/htmlVisualEditor.html?fileId=${data.files[i].id}">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i> ${data.files[i].name}
+                            </a>
+                        </td>
+                        <td scope="col" class="col-2 txt-r">${data.files[i].size} KB</td>
+                        <td scope="col" class="col-2">${data.files[i].modified}</td>
+                        <td scope="col" class="col-4"></td>
+                    </tr>`
+            $('#tableSource tbody').append(tr);
+        }
+    }
+}
+
+function getData(url, callback){
+    return fetch(url).then(function(response) {
+        return response.text();
+    }).then(function(data) {
+        callback(JSON.parse(data));
+    }).catch(function(error) {
+        console.log('There has been a problem with your fetch operation[loading getData]: ' + error.message);
+    });
+}
+
+(function(){
+
+    let url = new URL(window.location.href);
+    let folderId = url.searchParams.get("folderId");
+    getData("/folders/"+folderId, showFolder);
+})();

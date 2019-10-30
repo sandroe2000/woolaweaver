@@ -12,9 +12,12 @@
     "devDependencies": {
         "browser-sync": "^2.26.7",
         "gulp": "^4.0.2",
-        "gulp-cli": "^2.2.0"
+        "gulp-cli": "^2.2.0",
+        "proxy-middleware": "^0.15.0",
+        "url": "^0.11.0"
     },
     "dependencies": {
+        "http-proxy-middleware": "^0.20.0",
         "monaco-editor": "^0.17.1"
     },
     "optionalDependencies": {}

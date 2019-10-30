@@ -99,7 +99,7 @@ function removeRow(btn){
 
 ////////////////// MONACO /////////////////////
 let monacoEditor = null;
-
+/*
 $(document).ready(function() {
 
 let content = `<div id="row1569535848096" class="row">
@@ -131,12 +131,24 @@ let content = `<div id="row1569535848096" class="row">
     </div>
 </div>`;
     
-    setMonaEditor(content, 'template.html');    
+setMonaEditor(content, 'template.html'); 
+  
 });
+*/
+function getData(url, callback){
+    return fetch(url).then(function(response) {
+        return response.text();
+    }).then(function(data) {
+        callback(JSON.parse(data));
+    }).catch(function(error) {
+        console.log('There has been a problem with your fetch operation[loading getData]: ' + error.message);
+    });
+}
 
-function setMonaEditor(content, url){
+function setMonaEditor(data){
+    
     monacoEditor = monaco.editor.create(document.querySelector('.main-editor'), {
-        model: monaco.editor.createModel(content, getModelId(url))
+        model: monaco.editor.createModel(data.content, getModelId(data.name))
     });
 
     window.onresize = function () {
@@ -236,6 +248,9 @@ function setEndpointField(){
     $('#selEndpointFieldType').val('');
 }
 
-//if(document.querySelector('#btn-json-path-picker')){
-//    document.querySelector('#btn-json-path-picker').addEventListener('click', transformJson);
-//}
+(function(){
+    let url = new URL(window.location.href);
+    let fileId = url.searchParams.get("fileId");
+    getData("/files/"+fileId, setMonaEditor);
+})();
+
