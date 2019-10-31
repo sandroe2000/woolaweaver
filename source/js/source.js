@@ -42,6 +42,14 @@ function showFolder(data){
         modified = "",
         message = "";
 
+    if(data.path){
+        let path = JSON.parse(data.path);
+        $('#breadcrumbSource').append(`<li class="breadcrumb-item"><a href="#>project_name</a></li>`);
+        for(let i=0; i<path.length; i++){
+            $('#breadcrumbSource').append(`<li class="breadcrumb-item"><a href="http://localhost:3000/source.html?folderId=${path[i].id}">${path[i].name}</a></li>`);
+        }
+    }
+
     if(data.folders){
         for(let i=0; i<data.folders.length; i++){
             let tr = `<tr>
