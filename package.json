@@ -17,6 +17,7 @@
         "url": "^0.11.0"
     },
     "dependencies": {
+        "@types/browser-sync": "^2.26.1",
         "http-proxy-middleware": "^0.20.0",
         "monaco-editor": "^0.17.1"
     },

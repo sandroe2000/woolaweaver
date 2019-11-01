@@ -146,6 +146,16 @@ function getData(url, callback){
 }
 
 function setMonaEditor(data){
+
+    $('#projectName').html(`project_name`);
+    if(data.path){
+        let path = JSON.parse(data.path);        
+        for(let i=0; i<path.length; i++){
+            $('#breadcrumbSource').append(`<li class="breadcrumb-item"><a href="http://localhost:3000/source.html?folderId=${path[i].id}">${path[i].name}</a></li>`);
+        }
+    }
+    $('#folderOrFileName').html(data.name);
+
     
     monacoEditor = monaco.editor.create(document.querySelector('.main-editor'), {
         model: monaco.editor.createModel(data.content, getModelId(data.name))
