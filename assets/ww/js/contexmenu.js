@@ -10,84 +10,84 @@ $( window ).resize(function() {
 
 let inputArr = ['text', 'password', 'number', 'email', 'tel', 'url', 'search', 'date', 'datetime', 'datetime-local', 'time', 'month', 'week'];
 
-let numberTemplate = `<div class="form-row mb-2">
-                        <div class="col-4 text-right">
+let numberTemplate = `<div class="ctxm form-row mb-2">
+                        <div class="ctxm col-4 text-right">
                             <label for="idInput">Min:</label>
                         </div>
-                        <div class="col-8">
-                            <input id="min" type="number" class="form-control" value="0" />
+                        <div class="ctxm col-8">
+                            <input id="min" type="number" class="ctxm form-control" value="0" />
                         </div>
                     </div>
-                    <div class="form-row mb-2">
-                        <div class="col-4 text-right">
+                    <div class="ctxm form-row mb-2">
+                        <div class="ctxm col-4 text-right">
                             <label for="idInput">Max:</label>
                         </div>
-                        <div class="col-8">
-                            <input id="min" type="number" class="form-control" value="0" />
+                        <div class="ctxm col-8">
+                            <input id="min" type="number" class="ctxm form-control" value="0" />
                         </div>
                     </div>`;
 
-let rowsTemplate = `<div class="form-row mb-2">
-                        <div class="col-12">
+let rowsTemplate = `<div class="ctxm form-row mb-2">
+                        <div class="ctxm col-12">
                             <label for="idInput">Rows:</label>
-                            <input id="txtRows" type="number" class="form-control" value="0" min="2" max="30" />
+                            <input id="txtRows" type="number" class="ctxm form-control" value="0" min="2" max="30" />
                         </div>
                     </div>`;
 
-let labelTemplate = `<div class="form-row mb-2">
-                        <div class="col-12">
+let labelTemplate = `<div class="ctxm form-row mb-2">
+                        <div class="ctxm col-12">
                             <label for="idInput">Label:</label>                            
-                            <div class="input-group input-group-sm">
-                                <input id="labelInput" type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" />
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-check" aria-hidden="true"></i>
+                            <div class="ctxm input-group input-group-sm">
+                                <input id="labelInput" type="text" class="ctxm form-control" aria-describedby="inputGroup-sizing-sm" />
+                                <div class="ctxm input-group-append">
+                                    <button class="ctxm btn btn-primary" type="button">
+                                        <i class="ctxm fa fa-check" aria-hidden="true"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row mb-2">
-                        <div class="col-12">
-                            <div class="custom-control custom-switch">
-                                <input id="bold" type="checkbox" class="custom-control-input" />
-                                <label for="bold" class="custom-control-label mr-2">Bold</label>
+                    <div class="ctxm form-row mb-2">
+                        <div class="ctxm col-12">
+                            <div class="ctxm custom-control custom-switch">
+                                <input id="bold" type="checkbox" class="ctxm custom-control-input" />
+                                <label for="bold" class="ctxm custom-control-label mr-2">Bold</label>
                             </div>
                         </div>
                     </div>`;
 
-let orientationTemplate = `<div class="form-row mb-2">
-                                <div class="col-12">
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="vertical" name="orientation" class="custom-control-input" checked />
-                                    <label class="custom-control-label" for="vertical">Vertical</label>
+let orientationTemplate = `<div class="ctxm form-row mb-2">
+                                <div class="ctxm col-12">
+                                    <div class="ctxm custom-control custom-radio">
+                                        <input type="radio" id="vertical" name="orientation" class="ctxm custom-control-input" checked />
+                                    <label class="ctxm custom-control-label" for="vertical">Vertical</label>
                                 </div>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="horizontal" name="orientation" class="custom-control-input" />
-                                        <label class="custom-control-label" for="horizontal">Horizontal</label>
+                                    <div class="ctxm custom-control custom-radio">
+                                        <input type="radio" id="horizontal" name="orientation" class="ctxm custom-control-input" />
+                                        <label class="ctxm custom-control-label" for="horizontal">Horizontal</label>
                                     </div>
                                 </div>
                             </div>`;
 
-let idTemplate = `<div class="form-row mb-2">
-                    <div class="col-12">
+let idTemplate = `<div class="ctxm form-row mb-2">
+                    <div class="ctxm col-12">
                         <label for="idInput">Id:</label>                        
-                        <div class="input-group input-group-sm">
-                            <input id="elementId" type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" />
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fa fa-check" aria-hidden="true"></i>
+                        <div class="ctxm input-group input-group-sm">
+                            <input id="elementId" type="text" class="ctxm form-control" aria-describedby="inputGroup-sizing-sm" />
+                            <div class="ctxm input-group-append">
+                                <button class="ctxm btn btn-primary" type="button">
+                                    <i class="ctxm fa fa-check" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>`;
 
-let colTemplate = `<div class="form-row mb-2">
-                <div class="col-12">
+let colTemplate = `<div class="ctxm form-row mb-2">
+                <div class="ctxm col-12">
                     <label for="colGrid">Col Grid:</label>                        
-                    <div class="input-group input-group-sm">
-                        <select id="colGrid" class="form-control" aria-describedby="inputGroup-sizing-sm">
+                    <div class="ctxm input-group input-group-sm">
+                        <select id="colGrid" class="ctxm form-control" aria-describedby="inputGroup-sizing-sm">
                             <option value="col-md-1">col-md-1</option>
                             <option value="col-md-2">col-md-2</option>
                             <option value="col-md-3">col-md-3</option>
@@ -101,33 +101,33 @@ let colTemplate = `<div class="form-row mb-2">
                             <option value="col-md-11">col-md-11</option>
                             <option value="col-md-12">col-md-12</option>
                         </select>
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fa fa-check" aria-hidden="true"></i>
+                        <div class="ctxm input-group-append">
+                            <button class="ctxm btn btn-primary" type="button">
+                                <i class="ctxm fa fa-check" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="form-row mb-2">
-                <div class="col-12">
-                    <div class="custom-control custom-switch mt-2">
-                        <input id="colAlign" type="checkbox" class="custom-control-input" />
-                        <label for="colAlign" class="custom-control-label mr-2">Align Right</label>
+            <div class="ctxm form-row mb-2">
+                <div class="ctxm col-12">
+                    <div class="ctxm custom-control custom-switch mt-2">
+                        <input id="colAlign" type="checkbox" class="ctxm custom-control-input" />
+                        <label for="colAlign" class="ctxm custom-control-label mr-2">Align Right</label>
                     </div>
                 </div>
             </div>`;
                 
-let selectTemplate = `<div class="form-row mb-2">
-                <div class="col-12">
+let selectTemplate = `<div class="ctxm form-row mb-2">
+                <div class="ctxm col-12">
                     <label for="endPoint">EndPoint:</label>
-                    <div class="input-group input-group-sm">
-                        <select class="custom-select" id="endPoint" aria-describedby="inputGroup-sizing-sm">
+                    <div class="ctxm input-group input-group-sm">
+                        <select class="ctxm custom-select" id="endPoint" aria-describedby="inputGroup-sizing-sm">
                             <option selected>Selecione uma opção</option>
                         </select>
-                        <div class="input-group-append">
-                            <button class="btn btn-light" type="button" style="border: 1px solid #dfe1e6" data-toggle="modal" data-target="#modalEndPoint">
-                                <i class="fa fa-link" aria-hidden="true">
+                        <div class="ctxm input-group-append">
+                            <button class="ctxm btn btn-light" type="button" style="border: 1px solid #dfe1e6" data-toggle="modal" data-target="#modalEndPoint">
+                                <i class="ctxm fa fa-link" aria-hidden="true">
                                     <span style="display:none">Entity</span>
                                 </i>
                             </button>
@@ -135,162 +135,162 @@ let selectTemplate = `<div class="form-row mb-2">
                     </div>                                            
                 </div>
             </div>
-            <div class="form-row mb-2">
-                <div class="col-12">
+            <div class="ctxm form-row mb-2">
+                <div class="ctxm col-12">
                     <label for="selectValue">Value:</label>                        
-                    <div class="input-group input-group-sm">
-                        <select id="selectValue" class="form-control" aria-describedby="inputGroup-sizing-sm">
+                    <div class="ctxm input-group input-group-sm">
+                        <select id="selectValue" class="ctxm form-control" aria-describedby="inputGroup-sizing-sm">
                             <option value="">Selecione uma opção</option>
                         </select>
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fa fa-check" aria-hidden="true"></i>
+                        <div class="ctxm input-group-append">
+                            <button class="ctxm btn btn-primary" type="button">
+                                <i class="ctxm fa fa-check" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="form-row mb-2">
-                <div class="col-12">
+            <div class="ctxm form-row mb-2">
+                <div class="ctxm col-12">
                     <label for="selectText">Text:</label>                        
-                    <div class="input-group input-group-sm">
-                        <select id="selectText" class="form-control" aria-describedby="inputGroup-sizing-sm">
+                    <div class="ctxm input-group input-group-sm">
+                        <select id="selectText" class="ctxm form-control" aria-describedby="inputGroup-sizing-sm">
                             <option value="">Selecione uma opção</option>
                         </select>
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fa fa-check" aria-hidden="true"></i>
+                        <div class="ctxm input-group-append">
+                            <button class="ctxm btn btn-primary" type="button">
+                                <i class="ctxm fa fa-check" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="form-row">                        
-                <div class="col-12">
-                    <div class="custom-control custom-switch">
-                        <input id="multiple" type="checkbox" class="custom-control-input" />
-                        <label for="multiple" class="custom-control-label mb-2 mt-2 mr-2">Multiple</label>
+            <div class="ctxm form-row">                        
+                <div class="ctxm col-12">
+                    <div class="ctxm custom-control custom-switch">
+                        <input id="multiple" type="checkbox" class="ctxm custom-control-input" />
+                        <label for="multiple" class="ctxm custom-control-label mb-2 mt-2 mr-2">Multiple</label>
                     </div>
                 </div>
             </div>`;
 
-let placeholderTemplate = `<div class="form-row mb-2">
-                                <div class="col-12">
+let placeholderTemplate = `<div class="ctxm form-row mb-2">
+                                <div class="ctxm col-12">
                                     <label for="placeholder">Placeholder:</label>                                    
-                                    <div class="input-group input-group-sm">
-                                        <input id="placeholder" type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" />
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fa fa-check" aria-hidden="true"></i>
+                                    <div class="ctxm input-group input-group-sm">
+                                        <input id="placeholder" type="text" class="ctxm form-control" aria-describedby="inputGroup-sizing-sm" />
+                                        <div class="ctxm input-group-append">
+                                            <button class="ctxm btn btn-primary" type="button">
+                                                <i class="ctxm fa fa-check" aria-hidden="true"></i>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>`;
 
-let marginTemplate = `<div class="form-row">
-                        <div class="col-6">
+let marginTemplate = `<div class="ctxm form-row">
+                        <div class="ctxm col-6">
                             <label>Margins:</label>
                         </div>
                     </div>                        
-                    <div class="form-row">
-                        <div class="col-6">
-                            <div class="input-group input-group-sm mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="mdi mdi-arrow-upward" style="font-size:16px"></i></div>
+                    <div class="ctxm form-row">
+                        <div class="ctxm col-6">
+                            <div class="ctxm input-group input-group-sm mb-2">
+                                <div class="ctxm input-group-prepend">
+                                    <div class="ctxm input-group-text"><i class="ctxm mdi mdi-arrow-upward" style="font-size:16px"></i></div>
                                 </div>
-                                <input id="mt" type="number" class="form-control" value="0" min="0" max="4" aria-describedby="inputGroup-sizing-sm" />
+                                <input id="mt" type="number" class="ctxm form-control" value="0" min="0" max="4" aria-describedby="inputGroup-sizing-sm" />
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="input-group input-group-sm mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="mdi mdi-arrow-downward" style="font-size:16px"></i></div>
+                        <div class="ctxm col-6">
+                            <div class="ctxm input-group input-group-sm mb-2">
+                                <div class="ctxm input-group-prepend">
+                                    <div class="ctxm input-group-text"><i class="ctxm mdi mdi-arrow-downward" style="font-size:16px"></i></div>
                                 </div>
-                                <input id="mb" type="number" class="form-control" value="0" min="0" max="4" aria-describedby="inputGroup-sizing-sm" />
+                                <input id="mb" type="number" class="ctxm form-control" value="0" min="0" max="4" aria-describedby="inputGroup-sizing-sm" />
                             </div>                                
                         </div>
                     </div>
-                    <div class="form-row mb-2">
-                        <div class="col-6">
-                            <div class="input-group input-group-sm mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="mdi mdi-arrow-back" style="font-size:16px"></i></div>
+                    <div class="ctxm form-row mb-2">
+                        <div class="ctxm col-6">
+                            <div class="ctxm input-group input-group-sm mb-2">
+                                <div class="ctxm input-group-prepend">
+                                    <div class="ctxm input-group-text"><i class="ctxm mdi mdi-arrow-back" style="font-size:16px"></i></div>
                                 </div>
-                                <input id="ml" type="number" class="form-control" value="0" min="0" max="4" aria-describedby="inputGroup-sizing-sm" />
+                                <input id="ml" type="number" class="ctxm form-control" value="0" min="0" max="4" aria-describedby="inputGroup-sizing-sm" />
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="input-group input-group-sm mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="mdi mdi-arrow-forward" style="font-size:16px"></i></div>
+                        <div class="ctxm col-6">
+                            <div class="ctxm input-group input-group-sm mb-2">
+                                <div class="ctxm input-group-prepend">
+                                    <div class="ctxm input-group-text"><i class="ctxm mdi mdi-arrow-forward" style="font-size:16px"></i></div>
                                 </div>
-                                <input id="mr" type="number" class="form-control" value="0" min="0" max="4" aria-describedby="inputGroup-sizing-sm" />
+                                <input id="mr" type="number" class="ctxm form-control" value="0" min="0" max="4" aria-describedby="inputGroup-sizing-sm" />
                             </div>
                         </div>
                     </div>`;
 
-let btnTemplate = `<div class="form-row">                        
-                        <div class="col-12">
-                            <div class="custom-control custom-switch">
-                                <input id="outline" type="checkbox" class="custom-control-input" />
-                                <label for="outline" class="custom-control-label mr-2">Outline</label>
+let btnTemplate = `<div class="ctxm form-row">                        
+                        <div class="ctxm col-12">
+                            <div class="ctxm custom-control custom-switch">
+                                <input id="outline" type="checkbox" class="ctxm custom-control-input" />
+                                <label for="outline" class="ctxm custom-control-label mr-2">Outline</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row mt-2">                        
-                        <div class="col-6">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="light" name="colors" class="custom-control-input" checked />
-                                <label class="custom-control-label" for="light">Light</label>
+                    <div class="ctxm form-row mt-2">                        
+                        <div class="ctxm col-6">
+                            <div class="ctxm custom-control custom-radio">
+                                <input type="radio" id="light" name="colors" class="ctxm custom-control-input" checked />
+                                <label class="ctxm custom-control-label" for="light">Light</label>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="secondary" name="colors" class="custom-control-input" />
-                                <label class="custom-control-label" for="secondary">Secondary</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-6">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="success" name="colors" class="custom-control-input" />
-                                <label class="custom-control-label" for="success">Success</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="danger" name="colors" class="custom-control-input" />
-                                <label class="custom-control-label" for="danger">Danger</label>
+                        <div class="ctxm col-6">
+                            <div class="ctxm custom-control custom-radio">
+                                <input type="radio" id="secondary" name="colors" class="ctxm custom-control-input" />
+                                <label class="ctxm custom-control-label" for="secondary">Secondary</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="col-6">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="warning" name="colors" class="custom-control-input" />
-                                <label class="custom-control-label" for="warning">Warning</label>
+                    <div class="ctxm form-row">
+                        <div class="ctxm col-6">
+                            <div class="ctxm custom-control custom-radio">
+                                <input type="radio" id="success" name="colors" class="ctxm custom-control-input" />
+                                <label class="ctxm custom-control-label" for="success">Success</label>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="info" name="colors" class="custom-control-input" />
-                                <label class="custom-control-label" for="info">Info</label>
+                        <div class="ctxm col-6">
+                            <div class="ctxm custom-control custom-radio">
+                                <input type="radio" id="danger" name="colors" class="ctxm custom-control-input" />
+                                <label class="ctxm custom-control-label" for="danger">Danger</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row mb-2">
-                        <div class="col-6">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="primary" name="colors" class="custom-control-input" />
-                                <label class="custom-control-label" for="primary">Primary</label>
+                    <div class="ctxm form-row">
+                        <div class="ctxm col-6">
+                            <div class="ctxm custom-control custom-radio">
+                                <input type="radio" id="warning" name="colors" class="ctxm custom-control-input" />
+                                <label class="ctxm custom-control-label" for="warning">Warning</label>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="dark" name="colors" class="custom-control-input" />
-                                <label class="custom-control-label" for="dark">Dark</label>
+                        <div class="ctxm col-6">
+                            <div class="ctxm custom-control custom-radio">
+                                <input type="radio" id="info" name="colors" class="ctxm custom-control-input" />
+                                <label class="ctxm custom-control-label" for="info">Info</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ctxm form-row mb-2">
+                        <div class="ctxm col-6">
+                            <div class="ctxm custom-control custom-radio">
+                                <input type="radio" id="primary" name="colors" class="ctxm custom-control-input" />
+                                <label class="ctxm custom-control-label" for="primary">Primary</label>
+                            </div>
+                        </div>
+                        <div class="ctxm col-6">
+                            <div class="ctxm custom-control custom-radio">
+                                <input type="radio" id="dark" name="colors" class="ctxm custom-control-input" />
+                                <label class="ctxm custom-control-label" for="dark">Dark</label>
                             </div>
                         </div>
                     </div>`;
@@ -465,11 +465,11 @@ function createContexMenu(event){
     let alt = 200;
 
     let template = '';
-    let col = `<a class="dropdown-item" href="#" onclick="changeColSize();">
-            <i class="mdi mdi-compare-arrows"></i> <span style="position:absolute;margin:5px 10px">Switch Column Size</span>
+    let col = `<a class="ctxm dropdown-item" href="#" onclick="changeColSize();">
+            <i class="ctxm mdi mdi-compare-arrows"></i> <span style="position:absolute;margin:5px 10px">Switch Column Size</span>
             </a>
-            <a class="dropdown-item" href="#" onclick="changeColAlign();">
-            <i class="mdi mdi-compare-arrows"></i> <span style="position:absolute;margin:5px 10px">Switch Column Align</span>
+            <a class="ctxm dropdown-item" href="#" onclick="changeColAlign();">
+            <i class="ctxm mdi mdi-compare-arrows"></i> <span style="position:absolute;margin:5px 10px">Switch Column Align</span>
             </a>`;
 
     let input = `<form style="margin:10px">

@@ -12,13 +12,8 @@ let currentContentNode = 0;
 
 window.addEventListener('keydown', function(event) {
     if (event.keyCode == 46) { 
-        if(event.target.classList.contains('edit')){
-            return false;
-        }        
-        if(!$('div.main-editor').hasClass('hide')){
-            return false;
-        }
-        if(!$(event.target).parents('div.main-content').length){
+
+        if(event.target.classList.contains('ctxm')){
             return false;
         }
         confirmDelete({
