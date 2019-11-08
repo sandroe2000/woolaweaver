@@ -12,7 +12,11 @@ let currentContentNode = 0;
 
 window.addEventListener('keydown', function(event) {
     if (event.keyCode == 46) { 
-
+        
+        if(!$('div.main-editor').hasClass('hide')){
+            return false;
+        }
+        
         if(event.target.classList.contains('ctxm')){
             return false;
         }

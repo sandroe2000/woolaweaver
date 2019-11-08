@@ -24,6 +24,10 @@ $('#closeRightmenu').click(function(event){
     monacoEditor.layout();
 });
 
+let fileName = "";
+let folderId = 0;
+let fileId = 0;
+let url = "/files";
 let contador = 1;
 let row = `<div class="form-row" id="${contador}">
                 <div class="col-md-4 mt-2">
@@ -99,42 +103,7 @@ function removeRow(btn){
 
 ////////////////// MONACO /////////////////////
 let monacoEditor = null;
-/*
-$(document).ready(function() {
 
-let content = `<div id="row1569535848096" class="row">
-    <div id="col1569535852611" class="col-md-6">
-        <label id="lbl1569535857424" class="">Titulo</label>
-        <input id="inp1569535859190" type="text" class="form-control">
-    </div>
-</div>
-<div id="row1569535864060" class="row">
-    <div id="col1569535864060" class="col-md-6">
-        <label id="lbl1569535864060" class="">Categoria</label>
-        <select id="sel1569535877656" class="form-control">
-            <option>Selecione uma opção</option>            
-        </select>
-    </div>
-</div>
-<div id="row1569535918338" class="row">
-    <div id="col1569535920500" class="col-md-6">
-        <div class="custom-control custom-switch">
-            <input id="ipn1569535926182" type="checkbox" class="custom-control-input" />
-            <label id="lbl1569535926183" class="custom-control-label mt-1">Label</label>
-        </div>
-    </div>
-</div>
-<div id="row1569535916163" class="row">
-    <div id="col1569535916163" class="col-md-6 text-right">
-        <button id="btn1569535980355" type="button" class="btn btn-light">Cancel</button>
-        <button id="btn1569535987469" type="button" class="btn ml-2 btn-primary">Save</button>
-    </div>
-</div>`;
-    
-setMonaEditor(content, 'template.html'); 
-  
-});
-*/
 function getData(url, callback){
     return fetch(url).then(function(response) {
         return response.text();
@@ -148,6 +117,8 @@ function getData(url, callback){
 function setMonaEditor(data){
 
     appSetBreadcrumb(data);
+    fileName = data.name;
+    folderId = data.folder.id;
     
     monacoEditor = monaco.editor.create(document.querySelector('.main-editor'), {
         model: monaco.editor.createModel(data.content, getModelId(data.name))
@@ -174,22 +145,29 @@ $('#btnTextEditor').on('click', function(event){
     //window.location.href = '/textEditorSource.html?fileId=0';
     $('div.main-content').toggleClass('block');
     $('div.main-editor').toggleClass('hide');
-        
+       
     if($('div.main-content').hasClass('block')){
-        //$('div.main-content').click();
-        let edit = document.createElement('div');
-            edit.setAttribute('class', 'main-content container-fluid edit block');
-            edit.innerHTML = monacoEditor.getValue();
-        loadContentNode(edit); 
+        getContentFromMonaco();
     }
-
     if(!$('div.main-editor').hasClass('hide')){
-        //TODO -- DISABLE DRAG N DROP MENU, COL BORDER, ROW BORDERS;
-        let content = $('div.main-content').html();
-        monacoEditor.setValue(content);
-        monacoEditor.layout();
+        setContentToMonaco();    
     }
 });
+
+function getContentFromMonaco(){    
+    //$('div.main-content').click();
+    let edit = document.createElement('div');
+        edit.setAttribute('class', 'main-content container-fluid edit block');
+        edit.innerHTML = monacoEditor.getValue();
+    loadContentNode(edit); 
+}
+
+function setContentToMonaco(){    
+    //TODO -- DISABLE DRAG N DROP MENU, COL BORDER, ROW BORDERS;
+    let content = $('div.main-content').html();
+    monacoEditor.setValue(content);
+    monacoEditor.layout();
+}
 
 $('#modalEndPoint').on('show.bs.modal', function (event) {
     wwEndpoint.init();
@@ -250,9 +228,42 @@ function setEndpointField(){
     $('#selEndpointFieldType').val('');
 }
 
+$('#htmlVisualEditorBtnCommit').on('click', function(event){
+
+    if($('div.main-content').hasClass('block')){
+        setContentToMonaco();
+    }
+
+    let headers = {
+        "Content-Type": "application/json"
+    };
+
+    let json = {
+        "id": fileId,
+        "name": fileName,
+        "content": monacoEditor.getValue(),
+        "folder": {
+            "id": folderId
+        }
+    };
+    
+    fetch("/files/"+fileId, { 
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(json)
+    }).then(response => {
+        return response.json();            
+    }).then(response => {
+        //TODO    
+        alert('ATUALIZADO...');
+    });
+});
+
 (function(){
-    let url = new URL(window.location.href);
-    let fileId = url.searchParams.get("fileId");
+    url = new URL(window.location.href);
+    fileId = url.searchParams.get("fileId");
     getData("/files/"+fileId, setMonaEditor);
 })();
 
