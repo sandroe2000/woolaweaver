@@ -234,10 +234,6 @@ $('#htmlVisualEditorBtnCommit').on('click', function(event){
         setContentToMonaco();
     }
 
-    let headers = {
-        "Content-Type": "application/json"
-    };
-
     let json = {
         "id": fileId,
         "name": fileName,
