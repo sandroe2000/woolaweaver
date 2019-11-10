@@ -3,9 +3,7 @@
 let sourceId = 0, 
     sourceName = "", 
     sourceModified = "",
-    sourceParent = 0,
-    sourceFolders = [],
-    sourceFiles = [];
+    arr = [];
 
 $('.modal').on('show.bs.modal', function (event) {
     let button = $(event.relatedTarget);
@@ -14,25 +12,44 @@ $('.modal').on('show.bs.modal', function (event) {
     modal.find('.modal-title').html(template);
 });
 
-function setFoldersById(data){
+const init = async () => {
+    
+    let i = 0;
+    let url = new URL(window.location.href);
+    sourceId = url.searchParams.get("folderId");
+    arr = [
+        {url: "/folders/"+sourceId, callback: setFoldersById}, 
+        {url: "/folders/parent/"+sourceId, callback: setFoldersByParent}, 
+        {url: "/files/folder/"+sourceId, callback: setFilesByParent}
+    ];
+    setData(arr[0].url, arr[0].callback);
+}
+
+let setData = (url, callback) => {
+    
+    fetch(url).then(response => {
+        return response.text();
+    }).then(data => {
+        callback(JSON.parse(data));
+    });
+};
+
+let setFoldersById = (data) => {
 
     sourceName = data.name;
     sourceModified = data.modified;
     sourceId = data.id;
-
     appSetBreadcrumb(data);
-    //TODO - PROMISE ALL
-    getData("/folders/parent/"+sourceId, setFoldersByParent);
-    getData("/files/folder/"+sourceId, setFilesByParent);
-}
+    setData(arr[1].url, arr[1].callback);
+};
 
-function setFoldersByParent(data){
+let setFoldersByParent = (data) =>{
 
     if(data){
         for(let i=0; i<data.length; i++){
             let tr = `<tr>
                         <td scope="col" class="col-4">
-                            <a href="http://localhost:3000/source.html?folderId=${data[i].id}">
+                            <a href="/source.html?folderId=${data[i].id}">
                                 <i class="fa fa-folder" aria-hidden="true"></i> ${data[i].name}
                             </a>
                         </td>
@@ -43,13 +60,16 @@ function setFoldersByParent(data){
             $('#tableSource tbody').append(tr);
         }
     }
-}
-function setFilesByParent(data){
+    setData(arr[2].url, arr[2].callback);
+};
+
+let setFilesByParent = (data) =>{
+
     if(data){
         for(let i=0; i<data.length; i++){
             let tr = `<tr>
                         <td scope="col" class="col-4">
-                            <a href="http://localhost:3000/htmlVisualEditor.html?fileId=${data[i].id}">
+                            <a href="/htmlVisualEditor.html?fileId=${data[i].id}">
                                 <i class="fa fa-file-text-o" aria-hidden="true"></i> ${data[i].name}
                             </a>
                         </td>
@@ -60,17 +80,7 @@ function setFilesByParent(data){
             $('#tableSource tbody').append(tr);
         }
     }
-}
-
-function getData(url, callback){
-    return fetch(url).then(function(response) {
-        return response.text();
-    }).then(function(data) {
-        callback(JSON.parse(data));
-    }).catch(function(error) {
-        console.log('There has been a problem with your fetch operation[loading getData]: ' + error.message);
-    });
-}
+};
 
 function createFolder(){
 
@@ -103,12 +113,6 @@ function createFolder(){
     }).catch(function(error) {
         console.log('There has been a problem with your fetch operation[loading createFolder]: ' + error.message);
     });
-}
-
-function init(){
-    let url = new URL(window.location.href);
-    sourceId = url.searchParams.get("folderId");
-    getData("/folders/"+sourceId, setFoldersById);
 }
 
 (function(){
