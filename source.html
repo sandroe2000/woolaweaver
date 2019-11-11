@@ -91,10 +91,10 @@
                         <i class="fa fa-2 fa-ellipsis-v" aria-hidden="true"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFolder">
+                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFolderFile">
                             <i class="fa fa-folder-open-o" aria-hidden="true"></i> New Folder
                         </button>
-                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFile">
+                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFolderFile">
                             <i class="fa fa-file-o" aria-hidden="true"></i> New File
                         </button>
                     </div>
@@ -123,7 +123,7 @@
 
         </div>
 
-        <div class="modal fade" id="modalCreateFolder" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal fade" id="modalCreateFolderFile" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -136,17 +136,17 @@
                         <form>
                             <div class="form-group">
                                 <label for="newFolderName" class="col-form-label">Name:</label>
-                                <input type="text" class="form-control" id="newFolderName" />
+                                <input type="text" class="form-control" id="newFolderFileName" />
                             </div>
                             <div class="form-group">
                                 <label for="newFolderMessage" class="col-form-label">Message:</label>
-                                <input type="text" class="form-control" id="newFolderMessage" />
+                                <input type="text" class="form-control" id="newFolderFileMessage" />
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" onclick="createFolder()">Create</button>
+                        <button id="btnModalCreate" type="button" class="btn btn-primary">Create</button>
                     </div>
                 </div>
             </div>

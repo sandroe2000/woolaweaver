@@ -82,9 +82,18 @@ let setFilesByParent = (data) =>{
     }
 };
 
+$('#btnModalCreate').on('click', function(event){
+
+    if($(this).parents('.modal-content').find('.modal-title').text().indexOf('Folder')){
+        createFile();
+    }else{
+        createFolder();
+    }
+});
+
 function createFolder(){
 
-    let newFolderName = $('#newFolderName').val();
+    let newFolderName = $('#newFolderFileName').val();
 
     if(!newFolderName){
         alert('Nome é requerido!');
@@ -112,6 +121,39 @@ function createFolder(){
         init();
     }).catch(function(error) {
         console.log('There has been a problem with your fetch operation[loading createFolder]: ' + error.message);
+    });
+}
+
+function createFile(){
+    debugger;
+    let newFileName = $('#newFolderFileName').val();
+
+    if(!newFileName){
+        alert('Nome é requerido!');
+        return false;
+    }
+
+    let json = {
+        "name": newFileName, 
+        "folder": {
+            "id": sourceId
+        }
+    };
+
+    fetch("/files", { 
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(json)
+    }).then(response => {
+        return response.json();            
+    }).then(data => {   
+        //let data = JSON.parse(response);
+        $('#modalCreateFolderFile').modal('hide');
+        location.href = 'htmlVisualEditor.html?fileId='+data.id;
+    }).catch(function(error) {
+        console.log('There has been a problem with your fetch operation[loading createFile]: ' + error.message);
     });
 }
 

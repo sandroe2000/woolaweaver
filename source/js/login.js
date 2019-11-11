@@ -4,7 +4,7 @@ $(document).ready(function(){
     greet(); 
 }); 
 
-let imgs = ["kRanI4v.jpg", "kRanI5v.jpg", "kRanI6v.jpg", "kRanI7v.jpg"];
+let imgs = ["kRanI1v.jpg", "kRanI2v.jpg", "kRanI3v.jpg", "kRanI4v.jpg", "kRanI5v.jpg", "kRanI6v.jpg", "kRanI7v.jpg"];
     
 function greet(){
     let img = getRandom(imgs);

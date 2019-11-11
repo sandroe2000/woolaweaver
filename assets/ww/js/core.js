@@ -12,6 +12,10 @@ let currentContentNode = 0;
 
 window.addEventListener('keydown', function(event) {
     if (event.keyCode == 46) { 
+
+        if($('.actived').hasClass('main-content')){
+            return false;
+        }
         
         if(!$('div.main-editor').hasClass('hide')){
             return false;
@@ -474,7 +478,7 @@ function confirmDelete(options){
     });
 }
 
-function removeNode(){
+function removeNode(){   
     $('.actived').remove();
     domHasChanged();
 }
