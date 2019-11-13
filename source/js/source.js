@@ -1,6 +1,7 @@
 ;'use strict';
 
 let sourceId = 0, 
+    parentId = 0,
     sourceName = "", 
     sourceModified = "",
     arr = [];
@@ -39,6 +40,9 @@ let setFoldersById = (data) => {
     sourceName = data.name;
     sourceModified = data.modified;
     sourceId = data.id;
+    if(data.parent){
+        parentId = data.parent.id;
+    }
     appSetBreadcrumb(data);
     setData(arr[1].url, arr[1].callback);
 };
@@ -83,11 +87,11 @@ let setFilesByParent = (data) =>{
 };
 
 $('#btnModalCreate').on('click', function(event){
-
-    if($(this).parents('.modal-content').find('.modal-title').text().indexOf('Folder')){
-        createFile();
-    }else{
+    //debugger;
+    if($(this).parents('.modal-content').find('.modal-title').text().indexOf('Folder') > 0){
         createFolder();
+    }else{
+        createFile();
     }
 });
 
@@ -116,16 +120,17 @@ function createFolder(){
     }).then(response => {
         return response.json();            
     }).then(response => {   
-        $('#modalCreateFolder').modal('hide');
+        $('#modalCreateFolderFile').modal('hide');
         $('#tableSource > tbody').html('');
         init();
+        //location.href = 'source.html?folderId='+sourceId;
     }).catch(function(error) {
         console.log('There has been a problem with your fetch operation[loading createFolder]: ' + error.message);
     });
 }
 
 function createFile(){
-    debugger;
+    
     let newFileName = $('#newFolderFileName').val();
 
     if(!newFileName){

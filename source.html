@@ -32,15 +32,31 @@
             .table-fixed thead > tr > th {
                 float: left;
             }
+
+            .dropdown-toggle::after {
+                content: none;
+            }
         </style>
     </head>
     <body>
 
         <div class="nav-app">
             <i class="mdi mdi-widgets ico-rotate-90 mb-5" style="color:#03a9f4; font-size:48px"></i>
-            <button class="btn btn-light btn-sm" type="button">
-                <i class="mdi mdi-search"></i>
-            </button>
+
+            <div class="dropdown dropright">
+                <button id="dropdownMenu2" class="btn btn-light btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="mdi mdi-add"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFolderFile">
+                        <i class="fa fa-folder-open-o" aria-hidden="true"></i> New Folder
+                    </button>
+                    <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFolderFile">
+                        <i class="fa fa-file-o" aria-hidden="true"></i> New File
+                    </button>
+                </div>
+            </div>
+
             <a href="/project.html">
                 <button class="btn btn-light btn-sm" type="button">
                     <i class="mdi mdi-code"></i>
@@ -72,36 +88,8 @@
                 </ol>
             </nav>
 
-            <h4 id="folderOrFileName"></h4>
-
-            <form class="form-inline">
-                <div class="form-group mb-2 mt-3">
-                    <select class="form-control combo-branch">
-                        <option>master</option>
-                    </select>
-                </div>          
-                
-                <div class="dropdown">
-                    <button class="btn btn-light mb-2 ml-3 mt-3 dropdown-toggle" 
-                            type="button" 
-                            id="dropdownMenu2" 
-                            data-toggle="dropdown" 
-                            aria-haspopup="true" 
-                            aria-expanded="false">
-                        <i class="fa fa-2 fa-ellipsis-v" aria-hidden="true"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFolderFile">
-                            <i class="fa fa-folder-open-o" aria-hidden="true"></i> New Folder
-                        </button>
-                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalCreateFolderFile">
-                            <i class="fa fa-file-o" aria-hidden="true"></i> New File
-                        </button>
-                    </div>
-                </div>
-                
-            </form>
-
+            <h4 id="folderOrFileName"></h4>   
+            
             <nav aria-label="breadcrumb">
                 <i class="fa fa-folder" aria-hidden="true">&nbsp;&nbsp;/</i>
                 <ol id="breadcrumbSource" class="breadcrumb breadcrumb-folder"></ol>
