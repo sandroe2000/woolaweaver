@@ -279,7 +279,8 @@ transform: rotate(180deg);
 
 .topbar {
 	position: absolute;
-	top: 145px;
+	/*top: 145px;*/
+	top: 60px;
 	left: 20px;
 	height: 53px;
 	right: 15px;
@@ -308,7 +309,8 @@ transform: rotate(180deg);
 #editor,
 #container{
 	position: absolute;
-	top: 197px;
+	/*top: 197px;*/
+	top: 112px;
 	left: 20px;
 	bottom: 20px;
 	right: 15px;
@@ -676,7 +678,8 @@ label {
 .closeRightmenu {
 	position: absolute;
 	right: 15px;
-	top: 216px;
+	/*top: 216px;*/
+	top: 127px;
 	cursor: pointer;
 	color: rgb(143, 143, 143);
 	background-color: rgb(255, 255, 255, 0.3);

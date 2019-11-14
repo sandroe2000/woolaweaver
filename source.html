@@ -36,6 +36,29 @@
             .dropdown-toggle::after {
                 content: none;
             }
+
+            .table tbody{
+                height:220px !important; 
+                overflow-y: auto !important;
+            }
+            .table tbody::-webkit-scrollbar {
+                width: 12px;
+                height: 12px;
+                border-radius: 12px;
+            }
+            .table tbody::-webkit-scrollbar-track {
+                background: #F1F1F1;
+                border-radius: 12px;
+            }
+            .table tbody::-webkit-scrollbar-thumb {
+                border-radius: 12px;
+                background: #C1C1C1;
+                border: 3px solid #F1F1F1;
+                cursor: pointer;
+            }
+            .table tbody::-webkit-scrollbar-corner {
+                background: #C1C1C1;
+            }
         </style>
     </head>
     <body>
@@ -88,7 +111,7 @@
                 </ol>
             </nav>
 
-            <h4 id="folderOrFileName"></h4>   
+            <!--h4 id="folderOrFileName"></h4-->   
             
             <nav aria-label="breadcrumb">
                 <i class="fa fa-folder" aria-hidden="true">&nbsp;&nbsp;/</i>
@@ -105,7 +128,7 @@
                             <th scope="col" class="col-4">Message</th>
                         </tr>
                     </thead>
-                    <tbody style="height: calc(100vh - 230px) !important;"></tbody>
+                    <tbody style="height: calc(100vh - 150px) !important;"></tbody>
                 </table>
             </div>
 

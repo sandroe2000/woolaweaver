@@ -9,15 +9,17 @@ $('#sideBarForm').click(function(event){
     $('.sideBarForm').toggleClass('hide');
 });
 
-$('#sideBarLayout').click(function(event){
-    $('.sideBarLayout').toggleClass('hide');
-});
+$('#btnTextEditor i').toggleClass('fa-eye');
+$('.sideBarLayout').toggleClass('hide');
+$('.sideBarComponents').toggleClass('hide');
 
-$('#sideBarComponents').click(function(event){
-    $('.sideBarComponents').toggleClass('hide');
-});
+$('main').toggleClass('data-active');
+$('data').toggleClass('data-on');
 
 $('#closeRightmenu').click(function(event){
+
+    if(!isHtml()) return false;
+
     $('main').toggleClass('data-active');
     $('data').toggleClass('data-on');
     $(this).toggleClass('mdi-last-page mdi-first-page');
@@ -141,8 +143,24 @@ function getModelId(file){
     return fileExt;
 }
 
+function isHtml(){
+
+    if($('#breadcrumbSource li').last().text().indexOf('.html') <= 0){
+        return false;
+    }
+    
+    return true;
+}
+
 $('#btnTextEditor').on('click', function(event){
-    //window.location.href = '/textEditorSource.html?fileId=0';
+    
+    if(!isHtml()) return false;
+
+    $('#btnTextEditor i').toggleClass('fa-code');
+
+    $('.sideBarLayout').toggleClass('block');
+    $('.sideBarComponents').toggleClass('block');
+
     $('div.main-content').toggleClass('block');
     $('div.main-editor').toggleClass('hide');
        
@@ -155,7 +173,6 @@ $('#btnTextEditor').on('click', function(event){
 });
 
 function getContentFromMonaco(){    
-    //$('div.main-content').click();
     let edit = document.createElement('div');
         edit.setAttribute('class', 'main-content container-fluid edit block');
         edit.innerHTML = monacoEditor.getValue();
@@ -163,7 +180,6 @@ function getContentFromMonaco(){
 }
 
 function setContentToMonaco(){    
-    //TODO -- DISABLE DRAG N DROP MENU, COL BORDER, ROW BORDERS;
     let content = $('div.main-content').html();
     monacoEditor.setValue(content);
     monacoEditor.layout();
@@ -199,8 +215,6 @@ function transformJson(event) {
     }).catch(function(error) {
         console.log('There has been a problem with your fetch operation: ' + error.message);
     });
-
-    //event.preventDefault();
 }
 
 function setEndpointField(){
@@ -263,3 +277,4 @@ $('#htmlVisualEditorBtnCommit').on('click', function(event){
     getData("/files/"+fileId, setMonaEditor);
 })();
 
+//$('#closeRightmenu').click();

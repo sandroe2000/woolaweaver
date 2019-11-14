@@ -163,46 +163,40 @@
                 </ol>
             </nav>
 
-            <div class="topbar">                
+            <h4 id="folderOrFileName"></h4>
 
-                <nav aria-label="breadcrumb">
-                    <i class="fa fa-folder ml-2" aria-hidden="true">&nbsp;&nbsp;/</i>
-                    <ol id="breadcrumbSource" class="breadcrumb breadcrumb-folder" style="background-color: transparent !important;"></ol>
-                </nav>
+            <nav aria-label="breadcrumb">
+                <i class="fa fa-folder" aria-hidden="true">&nbsp;&nbsp;/</i>
+                <ol id="breadcrumbSource" class="breadcrumb breadcrumb-folder"></ol>
+            </nav>
 
+            <div class="topbar">
+                <button id="btnTextEditor" class="btn btn-light ml-2" type="button" style="float:left;margin-top:9px;border:1px solid #CECECE;width:75px">
+                    <i class="fa fa-code" aria-hidden="true"></i>
+                </button>
+                <!--div class="topbar-title">                    
+                    Editing index.html on branch: <strong>master</strong>
+                </div-->
                 <div class="topbar-buttons">
-
                     <form class="form-inline">
-                        <div class="dropdown">
-                            <button type="button" id="navbarDropdownMenuLink" class="btn btn-light dropdown-toggle mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               Menu Editor
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li class="dropdown-item">
-                                    <div class="custom-control custom-control-inline custom-switch">
-                                        <input id="chkGridSpace" type="checkbox" class="custom-control-input" checked />
-                                        <label for="chkGridSpace" class="custom-control-label mr-2">Grid Space</label>
-                                    </div>
-                                </li>
-                                <li class="dropdown-item">
-                                    <div class="custom-control custom-control-inline custom-switch">
-                                        <input id="chkColBorders" type="checkbox" class="custom-control-input" checked />
-                                        <label for="chkColBorders" class="custom-control-label mr-2">Col Borders</label>
-                                    </div>
-                                </li>
-                                <li class="dropdown-item">
-                                    <div class="custom-control custom-control-inline custom-switch">
-                                        <input id="chkRowBorders" type="checkbox" class="custom-control-input" checked />
-                                        <label for="chkRowBorders" class="custom-control-label mr-2">Row Borders</label>
-                                    </div>
-                                </li>
-                                <li class="dropdown-item">
-                                    <button id="btnCleanClipboardHistory" class="btn btn-secondary" type="button">Clean Clipboard History</button>
-                                </li>
-                            </ul>                        
+
+                        <div class="custom-control custom-control-inline custom-switch">
+                            <input id="chkGridSpace" type="checkbox" class="custom-control-input" checked />
+                            <label for="chkGridSpace" class="custom-control-label mr-2">Grid Space</label>
                         </div>
+                        <div class="custom-control custom-control-inline custom-switch">
+                            <input id="chkColBorders" type="checkbox" class="custom-control-input" checked />
+                            <label for="chkColBorders" class="custom-control-label mr-2">Col Borders</label>
+                        </div>
+                        <div class="custom-control custom-control-inline custom-switch">
+                            <input id="chkRowBorders" type="checkbox" class="custom-control-input" checked />
+                            <label for="chkRowBorders" class="custom-control-label mr-2">Row Borders</label>
+                        </div>
+
+                        <button id="btnCleanClipboardHistory" class="btn btn-light mr-2" type="button">Clean Clipboard History</button>
                         <button id="htmlVisualEditorBtnCancel" class="btn btn-light mr-2" type="button">Cancel</button>
                         <button id="htmlVisualEditorBtnCommit" class="btn btn-primary" type="button">Commit</button>
+
                     </form>
                 </div>
             </div>
@@ -225,11 +219,7 @@
                         <button class="btn btn-aside-menu" title="Input Checkbox"><i class="fa fa-check-square-o" ></i></button>
                         <button class="btn btn-aside-menu" title="Select"><i class="fa fa-chevron-down" ></i></button>
                         <button class="btn btn-aside-menu" title="Button"><i class="fa fa-square" ></i></button>
-                    </div>  
-                    
-                    <button id="btnTextEditor" class="btn btn-light ml-2" type="button" style="float:left;margin-top:9px;border:1px solid #CECECE;width:65px">
-                        <i class="fa" aria-hidden="true"></i>
-                    </button>
+                    </div>                    
                 </aside>
 
                 <main class="data-active">
